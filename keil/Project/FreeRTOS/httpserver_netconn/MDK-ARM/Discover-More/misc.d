@@ -1,0 +1,10 @@
+.\discover-more\misc.o: ..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\misc.c
+.\discover-more\misc.o: ..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\misc.h
+.\discover-more\misc.o: C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
+.\discover-more\misc.o: C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h
+.\discover-more\misc.o: ..\..\..\..\Libraries\CMSIS\Include\core_cm4.h
+.\discover-more\misc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\discover-more\misc.o: ..\..\..\..\Libraries\CMSIS\Include\core_cmInstr.h
+.\discover-more\misc.o: ..\..\..\..\Libraries\CMSIS\Include\core_cmFunc.h
+.\discover-more\misc.o: ..\..\..\..\Libraries\CMSIS\Include\core_cm4_simd.h
+.\discover-more\misc.o: C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h
