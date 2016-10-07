@@ -73,49 +73,32 @@ __IO uint32_t LocalTime = 0; /* this variable is used to create a time reference
 uint32_t timingdelay;
 
 
+extern uint8_t  ADC_buf_full_flag;
 int main(void)
 {
-  /*!< At this stage the microcontroller clock setting is already configured to 
-       168 MHz, this is done through SystemInit() function which is called from
-       startup file (startup_stm32f4xx.s) before to branch to application main.
-       To reconfigure the default setting of SystemInit() function, refer to
-       system_stm32f4xx.c file
-     */
+
   NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
 
-#ifdef SERIAL_DEBUG
-  DebugComPort_Init();
-#endif
 
-  /*Initialize LCD and Leds */ 
-//  LCD_LED_Init();
   ADC1_Init();
-  /* configure ethernet (GPIOs, clocks, MAC, DMA) */
-
   ETH_BSP_Config();
- 
-  /* Initilaize the LwIP stack */
   LwIP_Init();
-  
-  /* Http webserver Init */
-  //httpd_init();
 
 
-//  eMBTCPInit(0);
-//
-//
-//  eMBEnable();
-//
-//
-//  eMBSetSlaveID( MB_TCP_PSEUDO_ADDRESS, TRUE, Vendor, sizeof(Vendor) );
 
-  TCP_Send_Init();
+  eMBTCPInit(0);
+
+  eMBEnable();
+
+  eMBSetSlaveID( MB_TCP_PSEUDO_ADDRESS, TRUE, Vendor, sizeof(Vendor) );
+
+
 
   /* Infinite loop */
   while (1)
   {  
 
-	// eMBPoll();
+	 eMBPoll();
 
 	/* check if any packet received */
     if (ETH_CheckFrameReceived())
@@ -126,9 +109,12 @@ int main(void)
     /* handle periodic timers for LwIP */
     LwIP_Periodic_Handle(LocalTime);
 
-    if((LocalTime%2000)==0)
+    static uint32_t tmptime;
+
+    if(ADC_buf_full_flag)
     {
-    	TCP_Send_Buf();
+    	tcp_client_connect();
+    	ADC_buf_full_flag=0;
     }
 
   } 

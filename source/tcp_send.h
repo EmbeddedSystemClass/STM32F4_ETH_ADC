@@ -2,7 +2,6 @@
 #define TCP_SEND_H
 #include "stm32f4xx.h"
 
-int8_t TCP_Send_Init(void);
-int8_t TCP_Send_Buf(void);
+void tcp_client_connect(void);
 
 #endif

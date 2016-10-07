@@ -6,9 +6,12 @@
 #include "stm32f4xx_gpio.h"
 #include "misc.h"
 
-#define ADC_BUF_LEN 256
+#define ADC_BUF_LEN 2048
 
 uint16_t ADC_Buf[ADC_BUF_LEN];
+
+uint16_t *ADC_buf_pnt;
+uint8_t  ADC_buf_full_flag=0;
 
 
 void ADC1_Init(void)
@@ -68,7 +71,7 @@ void ADC1_Init(void)
        	// базовая нстйрока
        TIM_TimeBaseStructInit(&TIM_TimeBaseStructure);
        TIM_TimeBaseStructure.TIM_Period = 105-1;//(84000000 / 200000) - 1; ;
-       TIM_TimeBaseStructure.TIM_Prescaler = 0;
+       TIM_TimeBaseStructure.TIM_Prescaler = 10;
        TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
        TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
        TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure);
@@ -120,11 +123,15 @@ void  DMA2_Stream0_IRQHandler (void)
     if (DMA_GetITStatus(DMA2_Stream0,DMA_IT_HTIF0))
     {
     	DMA_ClearITPendingBit ( DMA2_Stream0, DMA_IT_HTIF0);
+    	ADC_buf_pnt=&ADC_Buf[0];
+    	ADC_buf_full_flag=1;
     }
 
     if (DMA_GetITStatus(DMA2_Stream0,DMA_IT_TCIF0))
     {
     	DMA_ClearITPendingBit ( DMA2_Stream0, DMA_IT_TCIF0);
+    	ADC_buf_pnt=&ADC_Buf[ADC_BUF_LEN>>1];
+    	ADC_buf_full_flag=1;
     }
 
 }
