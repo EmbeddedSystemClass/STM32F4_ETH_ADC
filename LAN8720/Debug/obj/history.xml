@@ -52,11 +52,11 @@
       <target file="netifapi.o" lastModified="1579941adf9">
          <source file="..\..\..\lwip\src\api\netifapi.c" lastModified="1537a52bce0"/>
       </target>
-      <target file="adc.o" lastModified="1579f077cbf">
-         <source file="..\..\..\source\adc.c" lastModified="1579f076510"/>
-      </target>
       <target file="ip_frag.o" lastModified="157994170ff">
          <source file="..\..\..\lwip\src\core\ipv4\ip_frag.c" lastModified="1537a52bce0"/>
+      </target>
+      <target file="adc.o" lastModified="1579f3de91e">
+         <source file="..\..\..\source\adc.c" lastModified="1579f3d78f0"/>
       </target>
       <target file="ip.o" lastModified="1579941a9b3">
          <source file="..\..\..\lwip\src\core\ipv4\ip.c" lastModified="1537a52bce0"/>
@@ -148,8 +148,8 @@
       <target file="mbrtu.o" lastModified="15799419ba9">
          <source file="..\..\..\Modbus\rtu\mbrtu.c" lastModified="1537a52bce0"/>
       </target>
-      <target file="tcp_send.o" lastModified="1579ef19cc5">
-         <source file="..\..\..\source\tcp_send.c" lastModified="1579ef18805"/>
+      <target file="tcp_send.o" lastModified="1579f45c469">
+         <source file="..\..\..\source\tcp_send.c" lastModified="1579f456801"/>
       </target>
       <target file="init.o" lastModified="157994188bd">
          <source file="..\..\..\lwip\src\core\init.c" lastModified="1537a52bce0"/>

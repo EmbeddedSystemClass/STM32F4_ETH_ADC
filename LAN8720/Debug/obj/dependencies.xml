@@ -117,14 +117,6 @@
          <include file="..\..\..\lwip\src\include\netif\etharp.h"/>
          <include file="..\..\..\lwip\src\include\netif\ppp_oe.h"/>
       </source>
-      <source file="..\..\..\source\tcp_send.c" lastModified="1579ef18fd5">
-         <include file="..\..\..\lwip\src\include\lwip\debug.h"/>
-         <include file="..\..\..\lwip\src\include\lwip\stats.h"/>
-         <include file="..\..\..\lwip\src\include\lwip\tcp.h"/>
-         <include file="..\..\..\httpserver\inc\main.h"/>
-         <include file="..\..\..\lwip\src\include\lwip\memp.h"/>
-         <include file="..\..\..\httpserver\inc\main.h"/>
-      </source>
       <source file="..\..\..\lwip\src\core\mem.c" lastModified="1537a52c0c8">
          <include file="..\..\..\lwip\src\include\lwip\opt.h"/>
          <include file="..\..\..\lwip\src\include\lwip\def.h"/>
@@ -166,10 +158,6 @@
       <source file="..\..\..\lwip\src\include\netif\slipif.h" lastModified="1537a52bce0">
          <include file="..\..\..\lwip\src\include\lwip\netif.h"/>
       </source>
-      <source file="..\..\..\lwip\src\include\lwip\err.h" lastModified="1537a52bce0">
-         <include file="..\..\..\lwip\src\include\lwip\opt.h"/>
-         <include file="..\..\..\lwip\src\include\lwip\arch.h"/>
-      </source>
       <source file="..\..\..\httpserver\src\httpd.c" lastModified="1537a52c4b0">
          <include file="..\..\..\lwip\src\include\lwip\debug.h"/>
          <include file="..\..\..\lwip\src\include\lwip\stats.h"/>
@@ -178,6 +166,10 @@
          <include file="..\..\..\lwip\src\include\lwip\tcp.h"/>
          <include file="..\..\..\httpserver\inc\fs.h"/>
          <include file="..\..\..\httpserver\inc\main.h"/>
+      </source>
+      <source file="..\..\..\lwip\src\include\lwip\err.h" lastModified="1537a52bce0">
+         <include file="..\..\..\lwip\src\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\src\include\lwip\arch.h"/>
       </source>
       <source file="..\..\..\lwip\src\api\err.c" lastModified="1537a52bce0">
          <include file="..\..\..\lwip\src\include\lwip\err.h"/>
@@ -589,6 +581,15 @@
       </source>
       <source file="..\..\..\lwip\src\include\netif\ppp_oe.h" lastModified="1537a52cc80">
          <include file="..\..\..\lwip\src\include\lwip\opt.h"/>
+      </source>
+      <source file="..\..\..\source\adc.c" lastModified="1579f3d78f0">
+         <include file="..\..\..\source\adc.h"/>
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_adc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_dma.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
+         <include file="..\..\..\cmsis_lib\include\misc.h"/>
       </source>
       <source file="..\..\..\Modbus\rtu\mbrtu.h" lastModified="1537a52bce0">
       </source>

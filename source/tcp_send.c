@@ -17,7 +17,7 @@ __IO u8_t Tcp_flag = 0;
 
 struct tcp_pcb *client_pcb;
 
-
+uint8_t cnt=0;
 
 
 
@@ -67,6 +67,7 @@ static err_t tcp_client_connected(void *arg, struct tcp_pcb *tpcb, err_t err)
 
         /* send data */
         tcp_client_send(tpcb);
+        cnt=0;
 
         return ERR_OK;
   }
@@ -91,7 +92,7 @@ extern uint16_t *ADC_buf_pnt;
 static void tcp_client_send(struct tcp_pcb *tpcb)
 {
 	err_t wr_err = ERR_OK;
-	wr_err = tcp_write(tpcb, ADC_buf_pnt,1024,0);
+	wr_err = tcp_write(tpcb, (uint8_t*)ADC_buf_pnt+(cnt*1024),1024,0);
 //  struct pbuf *ptr;
 //  err_t wr_err = ERR_OK;
 //
@@ -141,15 +142,16 @@ static err_t tcp_client_sent(void *arg, struct tcp_pcb *tpcb, u16_t len)
 
 
 
-//  if(es->p_tx != NULL)
-//  {
-//    /* still got pbufs to send */
-//    tcp_client_send(tpcb, es);
-//  }
-//  else
-//  {
+  if(cnt!=(16*sizeof(uint16_t)))
+  {
+    /* still got pbufs to send */
+    tcp_client_send(tpcb);
+    cnt++;
+  }
+  else
+  {
 	  tcp_client_connection_close(tpcb);
- // }
+  }
 
   return ERR_OK;
 }
