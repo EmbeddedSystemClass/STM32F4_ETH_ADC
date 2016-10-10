@@ -74,6 +74,10 @@ uint32_t timingdelay;
 
 
 extern uint8_t  ADC_buf_full_flag;
+
+uint8_t buf_transmit_flag=0;
+uint32_t loc_time_buf=0;
+
 int main(void)
 {
 
@@ -113,8 +117,18 @@ int main(void)
 
     if(ADC_buf_full_flag)
     {
+    	if(buf_transmit_flag==1)
+    	{
+    		tmptime=LocalTime;
+    	}
+    	else
+    	{
+    		loc_time_buf=LocalTime;
+		}
     	tcp_client_connect();
     	ADC_buf_full_flag=0;
+
+
     }
 
   } 
