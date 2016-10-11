@@ -13,6 +13,8 @@ uint16_t ADC_Buf[ADC_BUF_LEN];
 uint16_t *ADC_buf_pnt;
 uint8_t  ADC_buf_full_flag=0;
 
+uint8_t wait_for_mb_flag=0;
+
 
 void ADC1_Init(void)
 {
