@@ -6,7 +6,7 @@
 #include "stm32f4xx_gpio.h"
 #include "misc.h"
 
-#define ADC_BUF_LEN 16384
+
 
 uint16_t ADC_Buf[ADC_BUF_LEN];
 
@@ -71,7 +71,7 @@ void ADC1_Init(void)
        	// базовая нстйрока
        TIM_TimeBaseStructInit(&TIM_TimeBaseStructure);
        TIM_TimeBaseStructure.TIM_Period = 105-1;//(84000000 / 200000) - 1; ;
-       TIM_TimeBaseStructure.TIM_Prescaler = 32;
+       TIM_TimeBaseStructure.TIM_Prescaler = 0;
        TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
        TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
        TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure);

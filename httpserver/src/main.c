@@ -33,7 +33,8 @@
 #include "httpd.h"
 #include "misc.h"
 #include "adc.h"
-#include "tcp_send.h"
+//#include "tcp_send.h"
+#include "udp_send.h"
 /* ----------------------- Modbus includes ----------------------------------*/
 #include "mb.h"
 #include "mbtcp.h"
@@ -87,7 +88,7 @@ int main(void)
   ADC1_Init();
   ETH_BSP_Config();
   LwIP_Init();
-
+  udp_client_init();
 
 
   eMBTCPInit(0);
@@ -117,18 +118,8 @@ int main(void)
 
     if(ADC_buf_full_flag)
     {
-    	if(buf_transmit_flag==1)
-    	{
-    		tmptime=LocalTime;
-    	}
-    	else
-    	{
-    		loc_time_buf=LocalTime;
-		}
-    	tcp_client_connect();
+    	udp_client_send_buf();
     	ADC_buf_full_flag=0;
-
-
     }
 
   } 
