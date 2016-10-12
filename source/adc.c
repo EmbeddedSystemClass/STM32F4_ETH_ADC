@@ -15,6 +15,51 @@ uint8_t  ADC_buf_full_flag=0;
 
 uint8_t wait_for_mb_flag=0;
 
+uint64_t timestamp=0;
+
+void Timestamp_Init(void)
+{
+	  TIM_TimeBaseInitTypeDef		TIM_TimeBaseStructure;
+
+	  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4, ENABLE);
+	  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM5, ENABLE);
+
+
+      TIM_TimeBaseStructure.TIM_Period = 0xFFFF;
+      TIM_TimeBaseStructure.TIM_Prescaler =(SystemCoreClock>>1) / 100000 - 1;//10us
+      TIM_TimeBaseStructure.TIM_ClockDivision = 0;
+      TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+      TIM_TimeBaseInit(TIM4, &TIM_TimeBaseStructure);
+
+      TIM_TimeBaseStructure.TIM_Period = 0xFFFFFFFF;
+      TIM_TimeBaseStructure.TIM_Prescaler = 0;
+      TIM_TimeBaseStructure.TIM_ClockDivision = 0;
+      TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+      TIM_TimeBaseInit(TIM5, &TIM_TimeBaseStructure);
+
+	  /* Выбираем вход триггера от TIM5 (ITR2) */
+	  TIM_SelectInputTrigger(TIM5, TIM_TS_ITR2);
+	  /* Включаем тактирование от внешнего источника.
+	     Теперь TIM5 тактируется по ITR2. */
+	  TIM_SelectMasterSlaveMode(TIM5, TIM_MasterSlaveMode_Enable);
+	  TIM_SelectSlaveMode(TIM5, TIM_SlaveMode_External1);
+
+	  /* Выходной триггер будет срабатывать по переполнению */
+	  TIM_SelectOutputTrigger(TIM4, TIM_TRGOSource_Update);
+
+
+	  TIM_SetCounter(TIM4, 0);
+	  TIM_SetCounter(TIM5, 0);
+
+	  TIM_Cmd(TIM4, ENABLE);
+	  TIM_Cmd(TIM5, ENABLE);
+}
+
+uint64_t Get_LastTimestamp(void)
+{
+	return timestamp;
+}
+
 
 void ADC1_Init(void)
 {
@@ -30,6 +75,8 @@ void ADC1_Init(void)
        RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, ENABLE);
        RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
        RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA | RCC_AHB1Periph_GPIOC, ENABLE);
+
+       Timestamp_Init();
 
        GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_2 | GPIO_Pin_3;
        GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;
@@ -83,6 +130,15 @@ void ADC1_Init(void)
        TIM_Cmd(TIM2, ENABLE);
 
 
+      // ADC_ITConfig(ADC1, ADC_IT_EOC, ENABLE);
+       NVIC_InitStructure.NVIC_IRQChannel = ADC_IRQn;
+       NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 7;
+       NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+       NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+       NVIC_Init(&NVIC_InitStructure);
+      // NVIC_EnableIRQ(ADC_IRQn);
+
+
        // общие параметры работы АЦП
        ADC_CommonInitStructure.ADC_Mode = ADC_Mode_Independent;
        ADC_CommonInitStructure.ADC_TwoSamplingDelay = ADC_TwoSamplingDelay_5Cycles;
@@ -99,8 +155,6 @@ void ADC1_Init(void)
        ADC_InitStructure.ADC_NbrOfConversion = 1;
        ADC_Init(ADC1, &ADC_InitStructure);
 
-
-
 		  //Порядок оцифровки
 
 		#define ADC_SampleTime ADC_SampleTime_3Cycles
@@ -116,6 +170,9 @@ void ADC1_Init(void)
 		ADC_DMARequestAfterLastTransferCmd(ADC1, ENABLE);
 
 		ADC_DMACmd(ADC1, ENABLE); //Enable ADC1 DMA
+
+	    ADC_ClearFlag(ADC1, ADC_FLAG_EOC);
+
 		ADC_Cmd(ADC1, ENABLE); //Enable ADC1
 
 }
@@ -135,6 +192,17 @@ void  DMA2_Stream0_IRQHandler (void)
     	ADC_buf_pnt=&ADC_Buf[ADC_BUF_LEN>>1];
     	ADC_buf_full_flag=1;
     }
+ //   ADC_ITConfig(ADC1, ADC_IT_EOC, ENABLE);
+    timestamp=((((uint64_t)(TIM5->CNT))<<16)|TIM4->CNT);
+}
 
+void ADC_IRQHandler(void)
+{
+	if (ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == SET)
+	{
+		ADC_ClearFlag(ADC1, ADC_FLAG_EOC);
+		ADC_ITConfig(ADC1, ADC_IT_EOC, DISABLE);
+		timestamp=((((uint64_t)(TIM5->CNT))<<16)|TIM4->CNT);
+	}
 }
 
