@@ -22,6 +22,7 @@ extern uint8_t  ADC_buf_full_flag;
 
 int main(void)
 {
+  SystemInit();
   NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
   ADC1_Init();
   ETH_BSP_Config();

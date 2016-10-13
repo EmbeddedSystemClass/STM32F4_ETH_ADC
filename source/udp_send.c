@@ -10,7 +10,7 @@
 #include "adc.h"
 
 #define UDP_ADC_PACKET_SIZE	1024
-#define UDP_PACKET_SEND_DELAY 10
+#define UDP_PACKET_SEND_DELAY 1000
 
 #define SERVER_IP_ADDR0   192
 #define SERVER_IP_ADDR1   168
