@@ -3,7 +3,10 @@
 #include "stm32f4xx.h"
 
 #define ADC_BUF_LEN 32768
-void ADC1_Init(void);
-uint64_t Get_LastTimestamp(void);
+#define ADC_CHN_NUM	8
+
+void 	 ADC1_Init(void);
+uint64_t Timestamp_GetLastTimestamp(void);
+void 	 ADC_GetLastData(void);
 
 #endif

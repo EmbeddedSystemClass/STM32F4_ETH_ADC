@@ -10,7 +10,7 @@
 #include "adc.h"
 
 #define UDP_ADC_PACKET_SIZE	1024
-#define UDP_PACKET_SEND_DELAY 1000
+#define UDP_PACKET_SEND_DELAY 10
 
 #define SERVER_IP_ADDR0   192
 #define SERVER_IP_ADDR1   168
@@ -58,7 +58,7 @@ void udp_client_send_buf(void)
   err_t err;
   adc_buf_offset=0;
   UDPPacket.id=0;
-  UDPPacket.timestamp=Get_LastTimestamp();
+  UDPPacket.timestamp=Timestamp_GetLastTimestamp();
   if (client_pcb != NULL)
   {
 	while(adc_buf_offset!=ADC_BUF_LEN)

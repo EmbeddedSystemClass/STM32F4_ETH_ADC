@@ -5,6 +5,7 @@
 #include "stm32f4xx_dma.h"
 #include "stm32f4xx_gpio.h"
 #include "misc.h"
+#include "string.h"
 
 
 
@@ -14,6 +15,7 @@ uint16_t *ADC_buf_pnt;
 uint8_t  ADC_buf_full_flag=0;
 
 uint8_t wait_for_mb_flag=0;
+uint16_t ADC_last_data[ADC_CHN_NUM];
 
 uint64_t timestamp=0;
 
@@ -55,7 +57,7 @@ void Timestamp_Init(void)
 	  TIM_Cmd(TIM5, ENABLE);
 }
 
-uint64_t Get_LastTimestamp(void)
+uint64_t Timestamp_GetLastTimestamp(void)
 {
 	return timestamp;
 }
@@ -131,11 +133,11 @@ void ADC1_Init(void)
 
 
       // ADC_ITConfig(ADC1, ADC_IT_EOC, ENABLE);
-       NVIC_InitStructure.NVIC_IRQChannel = ADC_IRQn;
-       NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 7;
-       NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-       NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-       NVIC_Init(&NVIC_InitStructure);
+//       NVIC_InitStructure.NVIC_IRQChannel = ADC_IRQn;
+//       NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 7;
+//       NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+//       NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+//       NVIC_Init(&NVIC_InitStructure);
       // NVIC_EnableIRQ(ADC_IRQn);
 
 
@@ -196,13 +198,19 @@ void  DMA2_Stream0_IRQHandler (void)
     timestamp=((((uint64_t)(TIM5->CNT))<<16)|TIM4->CNT);
 }
 
-void ADC_IRQHandler(void)
+
+void ADC_GetLastData(void)
 {
-	if (ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == SET)
-	{
-		ADC_ClearFlag(ADC1, ADC_FLAG_EOC);
-		ADC_ITConfig(ADC1, ADC_IT_EOC, DISABLE);
-		timestamp=((((uint64_t)(TIM5->CNT))<<16)|TIM4->CNT);
-	}
+	memcpy((uint8_t*)ADC_last_data,(uint8_t*)&ADC_buf_pnt[(ADC_BUF_LEN>>1)-ADC_CHN_NUM-1],ADC_CHN_NUM*sizeof(uint16_t));
 }
+
+//void ADC_IRQHandler(void)
+//{
+//	if (ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == SET)
+//	{
+//		ADC_ClearFlag(ADC1, ADC_FLAG_EOC);
+//		ADC_ITConfig(ADC1, ADC_IT_EOC, DISABLE);
+//		timestamp=((((uint64_t)(TIM5->CNT))<<16)|TIM4->CNT);
+//	}
+//}
 

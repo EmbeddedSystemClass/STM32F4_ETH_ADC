@@ -47,6 +47,7 @@ int main(void)
     {
     	udp_client_send_buf();
     	ADC_buf_full_flag=0;
+    	ADC_GetLastData();
     }
   } 
 }
