@@ -487,6 +487,15 @@
          <include file="..\..\..\lwip\src\include\ipv4\lwip\autoip.h"/>
          <include file="..\..\..\lwip\src\include\netif\etharp.h"/>
       </source>
+      <source file="..\..\..\source\udp_send.c" lastModified="157bd33b11f">
+         <include file="..\..\..\lwip\src\include\lwip\debug.h"/>
+         <include file="..\..\..\lwip\src\include\lwip\stats.h"/>
+         <include file="..\..\..\lwip\src\include\lwip\udp.h"/>
+         <include file="..\..\..\main\main.h"/>
+         <include file="..\..\..\lwip\src\include\lwip\memp.h"/>
+         <include file="..\..\..\source\adc.h"/>
+         <include file="..\..\..\source\adc.h"/>
+      </source>
       <source file="..\..\..\STM32F4x7_ETH_Driver\inc\stm32f4x7_eth.h" lastModified="1537a52bce0">
          <include file="..\..\..\STM32F4x7_ETH_Driver\Ethernet\inc\stm32f4x7_eth_conf.h"/>
       </source>
@@ -572,15 +581,6 @@
       </source>
       <source file="..\..\..\lwip\src\include\netif\ppp_oe.h" lastModified="1537a52cc80">
          <include file="..\..\..\lwip\src\include\lwip\opt.h"/>
-      </source>
-      <source file="..\..\..\source\adc.c" lastModified="157bd301654">
-         <include file="..\..\..\source\adc.h"/>
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_adc.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_dma.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
-         <include file="..\..\..\cmsis_lib\include\misc.h"/>
       </source>
       <source file="..\..\..\Modbus\rtu\mbrtu.h" lastModified="1537a52bce0">
       </source>

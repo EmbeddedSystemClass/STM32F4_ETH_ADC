@@ -62,11 +62,11 @@
       <target file="netifapi.o" lastModified="157b39d03f7">
          <source file="..\..\..\lwip\src\api\netifapi.c" lastModified="1537a52bce0"/>
       </target>
+      <target file="adc.o" lastModified="157bda07859">
+         <source file="..\..\..\source\adc.c" lastModified="157bda068e8"/>
+      </target>
       <target file="ip_frag.o" lastModified="157b39cb1b0">
          <source file="..\..\..\lwip\src\core\ipv4\ip_frag.c" lastModified="1537a52bce0"/>
-      </target>
-      <target file="adc.o" lastModified="157bd30e472">
-         <source file="..\..\..\source\adc.c" lastModified="157bd30126c"/>
       </target>
       <target file="ip.o" lastModified="157b39cff34">
          <source file="..\..\..\lwip\src\core\ipv4\ip.c" lastModified="1537a52bce0"/>

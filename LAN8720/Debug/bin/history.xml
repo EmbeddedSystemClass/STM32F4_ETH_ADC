@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="4.7.2 -mcpu=cortex-m4 -mthumb -g -nostartfiles -Map=LAN8720.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\LAN8720 -TC:\CooCox\CoIDE\configuration\ProgramData\LAN8720/arm-gcc-link.ld -g">
-      <target file="LAN8720.elf" lastModified="157bd33d08e">
+      <target file="LAN8720.elf" lastModified="157bda07c13">
          <source file="..\obj\stm32f4xx_syscfg.o" lastModified="157b39c7dc0"/>
          <source file="..\obj\mem.o" lastModified="157b39c8225"/>
          <source file="..\obj\stm32f4xx_sdio.o" lastModified="157b39c859f"/>
@@ -54,7 +54,7 @@
          <source file="..\obj\syscalls.o" lastModified="157b39cf580"/>
          <source file="..\obj\stm32f4xx_dma.o" lastModified="157b39cf716"/>
          <source file="..\obj\portother.o" lastModified="157b39cf86e"/>
-         <source file="..\obj\adc.o" lastModified="157bd30e472"/>
+         <source file="..\obj\adc.o" lastModified="157bda07859"/>
          <source file="..\obj\sockets.o" lastModified="157b39cfbf8"/>
          <source file="..\obj\igmp.o" lastModified="157b39cfcb4"/>
          <source file="..\obj\udp.o" lastModified="157b39cfe0b"/>
