@@ -179,24 +179,24 @@ void ADC1_Init(void)
 
 }
 
-void  DMA2_Stream0_IRQHandler (void)
-{
-    if (DMA_GetITStatus(DMA2_Stream0,DMA_IT_HTIF0))
-    {
-    	DMA_ClearITPendingBit ( DMA2_Stream0, DMA_IT_HTIF0);
-    	ADC_buf_pnt=&ADC_Buf[0];
-    	ADC_buf_full_flag=1;
-    }
-
-    if (DMA_GetITStatus(DMA2_Stream0,DMA_IT_TCIF0))
-    {
-    	DMA_ClearITPendingBit ( DMA2_Stream0, DMA_IT_TCIF0);
-    	ADC_buf_pnt=&ADC_Buf[ADC_BUF_LEN>>1];
-    	ADC_buf_full_flag=1;
-    }
- //   ADC_ITConfig(ADC1, ADC_IT_EOC, ENABLE);
-    timestamp=((((uint64_t)(TIM5->CNT))<<16)|TIM4->CNT);
-}
+//void  DMA2_Stream0_IRQHandler (void)
+//{
+//    if (DMA_GetITStatus(DMA2_Stream0,DMA_IT_HTIF0))
+//    {
+//    	DMA_ClearITPendingBit ( DMA2_Stream0, DMA_IT_HTIF0);
+//    	ADC_buf_pnt=&ADC_Buf[0];
+//    	ADC_buf_full_flag=1;
+//    }
+//
+//    if (DMA_GetITStatus(DMA2_Stream0,DMA_IT_TCIF0))
+//    {
+//    	DMA_ClearITPendingBit ( DMA2_Stream0, DMA_IT_TCIF0);
+//    	ADC_buf_pnt=&ADC_Buf[ADC_BUF_LEN>>1];
+//    	ADC_buf_full_flag=1;
+//    }
+// //   ADC_ITConfig(ADC1, ADC_IT_EOC, ENABLE);
+//    timestamp=((((uint64_t)(TIM5->CNT))<<16)|TIM4->CNT);
+//}
 
 
 void ADC_GetLastData(void)
