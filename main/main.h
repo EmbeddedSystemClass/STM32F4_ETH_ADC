@@ -83,6 +83,10 @@
 
 /* MII and RMII mode selection, for STM324xG-EVAL Board(MB786) RevB ***********/
 #define RMII_MODE
+
+#define ADC_EXT
+#define ADC_BUF_LEN 32768
+#define ADC_CHN_NUM	4
    
 
 void Time_Update(void);

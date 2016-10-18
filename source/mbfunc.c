@@ -1,7 +1,8 @@
 #include "mbfunc.h"
 #include "mb.h"
 #include "mbtcp.h"
-#include "adc.h"
+//#include "adc.h"
+#include "main.h"
 
 /* ----------------------- Defines ------------------------------------------*/
 #define REG_INPUT_START         1000

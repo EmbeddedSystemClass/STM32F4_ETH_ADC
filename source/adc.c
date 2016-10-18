@@ -1,3 +1,6 @@
+#include "main.h"
+#ifndef ADC_EXT
+
 #include "adc.h"
 #include "stm32f4xx.h"
 #include "stm32f4xx_adc.h"
@@ -214,3 +217,4 @@ void ADC_GetLastData(void)
 //	}
 //}
 
+#endif

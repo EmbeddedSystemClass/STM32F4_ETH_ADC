@@ -58,7 +58,7 @@ void udp_client_send_buf(void)
   err_t err;
   adc_buf_offset=0;
   UDPPacket.id=0;
-  UDPPacket.timestamp=Timestamp_GetLastTimestamp();
+ // UDPPacket.timestamp=Timestamp_GetLastTimestamp();
   if (client_pcb != NULL)
   {
 	while(adc_buf_offset!=ADC_BUF_LEN)

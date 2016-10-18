@@ -3,5 +3,5 @@
 
 
 void ADC_ExtInit(void);
-
+void SPI_SendTest(void);
 #endif
