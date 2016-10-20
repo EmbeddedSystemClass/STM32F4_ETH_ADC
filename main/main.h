@@ -53,15 +53,16 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx.h"
 #include "stm32f4x7_eth_bsp.h"
+#include "FreeRTOS.h"
 
  
 /* MAC ADDRESS: MAC_ADDR0:MAC_ADDR1:MAC_ADDR2:MAC_ADDR3:MAC_ADDR4:MAC_ADDR5 */
-#define MAC_ADDR0   2
-#define MAC_ADDR1   0
-#define MAC_ADDR2   0
-#define MAC_ADDR3   0
-#define MAC_ADDR4   0
-#define MAC_ADDR5   0
+#define MAC_ADDR0   0x00
+#define MAC_ADDR1   0x12
+#define MAC_ADDR2   0x13
+#define MAC_ADDR3   0x10
+#define MAC_ADDR4   0x15
+#define MAC_ADDR5   0x11
  
 /*Static IP ADDRESS: IP_ADDR0.IP_ADDR1.IP_ADDR2.IP_ADDR3 */
 #define IP_ADDR0   192
@@ -79,7 +80,7 @@
 #define GW_ADDR0   192
 #define GW_ADDR1   168
 #define GW_ADDR2   109
-#define GW_ADDR3   1
+#define GW_ADDR3   140
 
 /* MII and RMII mode selection, for STM324xG-EVAL Board(MB786) RevB ***********/
 #define RMII_MODE

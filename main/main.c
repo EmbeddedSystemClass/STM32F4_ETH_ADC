@@ -10,6 +10,9 @@
 #include "mbtcp.h"
 #include "adc_ext.h"
 
+#include "FreeRTOS.h"
+#include "task.h"
+
 #define SYSTEMTICK_PERIOD_MS  10
 static uint8_t Vendor[] = "GEOS";
 
@@ -17,41 +20,42 @@ static uint8_t Vendor[] = "GEOS";
 volatile uint32_t LocalTime = 0; /* this variable is used to create a time reference incremented by 10ms */
 uint32_t timingdelay;
 
-
 extern uint8_t  ADC_buf_full_flag;
 
+void tcpecho_init(void);
 
 int main(void)
 {
   SystemInit();
-  NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
-  ADC_ExtInit();
+  //NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
+//  ADC_ExtInit();
 //  ADC1_Init();
   ETH_BSP_Config();
   LwIP_Init();
-  udp_client_init();
-
-  eMBTCPInit(0);
-  eMBEnable();
-  eMBSetSlaveID( MB_TCP_PSEUDO_ADDRESS, TRUE, Vendor, sizeof(Vendor) );
-
+ // udp_client_init();
+//  tcpecho_init();
+//
+//  eMBTCPInit(0);
+//  eMBEnable();
+//  eMBSetSlaveID( MB_TCP_PSEUDO_ADDRESS, TRUE, Vendor, sizeof(Vendor) );
+  vTaskStartScheduler();
   while (1)
   {  
-	eMBPoll();
-
-    if (ETH_CheckFrameReceived())
-    {
-      LwIP_Pkt_Handle();
-    }
-
-    LwIP_Periodic_Handle(LocalTime);
-
-    if(ADC_buf_full_flag)
-    {
-    	udp_client_send_buf();
-    	ADC_buf_full_flag=0;
-    //	ADC_GetLastData();
-    }
+//	eMBPoll();
+//
+//    if (ETH_CheckFrameReceived())
+//    {
+//      LwIP_Pkt_Handle();
+//    }
+//
+//    LwIP_Periodic_Handle(LocalTime);
+//
+//    if(ADC_buf_full_flag)
+//    {
+//    	udp_client_send_buf();
+//    	ADC_buf_full_flag=0;
+//    //	ADC_GetLastData();
+//    }
 
   }
 }

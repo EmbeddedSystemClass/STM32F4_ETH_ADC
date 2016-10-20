@@ -55,8 +55,6 @@
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
 void LwIP_Init(void);
-void LwIP_Pkt_Handle(void);
-void LwIP_Periodic_Handle(__IO uint32_t localtime);
 
 #ifdef __cplusplus
 }

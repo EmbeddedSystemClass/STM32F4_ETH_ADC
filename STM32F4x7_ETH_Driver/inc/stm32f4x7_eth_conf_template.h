@@ -70,23 +70,12 @@
 
 /* The PHY status register value change from a PHY to another, so the user have 
    to update this value depending on the used external PHY */
-//#define PHY_SR    ((uint16_t)16) /* Value for DP83848 PHY */
-//
-///* The Speed and Duplex mask values change from a PHY to another, so the user
-//   have to update this value depending on the used external PHY */
-//#define PHY_SPEED_STATUS            ((uint16_t)0x0002) /* Value for DP83848 PHY */
-//#define PHY_DUPLEX_STATUS           ((uint16_t)0x0004) /* Value for DP83848 PHY */
-
-#define PHY_SR                            0x1f   //31         /*!< Tranceiver Status Register  for LAN8700*/
+#define PHY_SR    ((uint16_t)16) /* Value for DP83848 PHY */
 
 /* The Speed and Duplex mask values change from a PHY to another, so the user
    have to update this value depending on the used external PHY */
-//#define PHY_SPEED_STATUS            ((uint16_t)0x2000) /* Value for DP83848 PHY */
-//#define PHY_DUPLEX_STATUS           ((uint16_t)0x0100) /* Value for DP83848 PHY */
-
-//for LAN8700
-#define PHY_SPEED_STATUS            ((u16)0x0004)       /*!< Configured information of Speed: 10Mbps */
-#define PHY_DUPLEX_STATUS           ((u16)0x0010)       /*!< Configured information of Duplex: Full-duplex */
+#define PHY_SPEED_STATUS            ((uint16_t)0x0002) /* Value for DP83848 PHY */
+#define PHY_DUPLEX_STATUS           ((uint16_t)0x0004) /* Value for DP83848 PHY */
 
    
 /* Exported macro ------------------------------------------------------------*/
