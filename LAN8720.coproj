@@ -88,6 +88,7 @@
     <Component id="515" name="DAC" path="" type="2"/>
     <Component id="517" name="USART" path="" type="2"/>
     <Component id="520" name="SDIO" path="" type="2"/>
+    <Component id="522" name="DCMI" path="" type="2"/>
     <Component id="524" name="MISC" path="" type="2"/>
     <Component id="526" name="SYSCFG" path="" type="2"/>
   </Components>
@@ -172,6 +173,7 @@
     <File name="cmsis_boot" path="" type="2"/>
     <File name="lwip/src/netif/ppp/vj.c" path="lwip/src/netif/ppp/vj.c" type="1"/>
     <File name="lwipopts.h" path="lwipopts.h" type="1"/>
+    <File name="source/adc_dcmi.h" path="source/adc_dcmi.h" type="1"/>
     <File name="lwip/src/netif/slipif.c" path="lwip/src/netif/slipif.c" type="1"/>
     <File name="lwip/src/include/lwip/def.h" path="lwip/src/include/lwip/def.h" type="1"/>
     <File name="http_server.h" path="http_server.h" type="1"/>
@@ -289,6 +291,7 @@
     <File name="lwip/src" path="" type="2"/>
     <File name="cmsis_lib/include/stm32f4xx_adc.h" path="cmsis_lib/include/stm32f4xx_adc.h" type="1"/>
     <File name="FreeRTOS/include/projdefs.h" path="FreeRTOS/include/projdefs.h" type="1"/>
+    <File name="source/adc_dcmi.c" path="source/adc_dcmi.c" type="1"/>
     <File name="cmsis_boot/system_stm32f4xx.c" path="cmsis_boot/system_stm32f4xx.c" type="1"/>
     <File name="lwip/src/include/lwip/snmp_asn1.h" path="lwip/src/include/lwip/snmp_asn1.h" type="1"/>
     <File name="cmsis" path="" type="2"/>
