@@ -2,6 +2,6 @@
 #define ADC_DCMI_H
 
 
-void ADC_DCMIInit(void);
+void ADC_Ext_Init(void);
 
 #endif

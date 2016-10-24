@@ -35,18 +35,32 @@
 <part id="14"/>
 <part id="15"/>
 <part id="16"/>
+<part id="17"/>
+<part id="18"/>
+<part id="19"/>
+<part id="20"/>
+<part id="21"/>
+<part id="22"/>
+<part id="23"/>
+<part id="24"/>
+<part id="25"/>
+<part id="26"/>
+<part id="27"/>
+<part id="28"/>
+<part id="29"/>
+<part id="30"/>
+<part id="31"/>
+<part id="32"/>
+<part id="33"/>
+<part id="34"/>
+<part id="35"/>
+<part id="36"/>
+<part id="37"/>
+<part id="38"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/main/main.c" title="main.c" tooltip="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/main/main.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LAN8720/main/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="633" selectionTopPixel="360"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="tcp_send.c" partName="tcp_send.c" path="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/source/tcp_send.c" title="tcp_send.c" tooltip="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/source/tcp_send.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LAN8720/source/tcp_send.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1895" selectionTopPixel="0"/>
-</editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="tcpecho.c" partName="tcpecho.c" path="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/source/tcpecho.c" title="tcpecho.c" tooltip="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/source/tcpecho.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LAN8720/source/tcpecho.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2389" selectionTopPixel="692"/>
@@ -103,9 +117,106 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LAN8720/STM32F4x7_ETH_Driver/src/stm32f4x7_eth.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="1920"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="ethernetif.c" partName="ethernetif.c" path="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/utilities/lwip/port/ethernetif.c" title="ethernetif.c" tooltip="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/utilities/lwip/port/ethernetif.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LAN8720/utilities/lwip/port/ethernetif.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="7581" selectionTopPixel="722"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="core_cm4_simd.h" partName="core_cm4_simd.h" path="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/cmsis/core_cm4_simd.h" title="core_cm4_simd.h" tooltip="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/cmsis/core_cm4_simd.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LAN8720/cmsis/core_cm4_simd.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="core_cmFunc.h" partName="core_cmFunc.h" path="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/cmsis/core_cmFunc.h" title="core_cmFunc.h" tooltip="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/cmsis/core_cmFunc.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LAN8720/cmsis/core_cmFunc.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1139" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4x7_eth_bsp.h" partName="stm32f4x7_eth_bsp.h" path="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/stm32f4x7_eth_bsp.h" title="stm32f4x7_eth_bsp.h" tooltip="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/stm32f4x7_eth_bsp.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LAN8720/stm32f4x7_eth_bsp.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2360" selectionTopPixel="529"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4x7_eth_bsp.c" partName="stm32f4x7_eth_bsp.c" path="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/stm32f4x7_eth_bsp.c" title="stm32f4x7_eth_bsp.c" tooltip="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/stm32f4x7_eth_bsp.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LAN8720/stm32f4x7_eth_bsp.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3191" selectionTopPixel="1109"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/main.c" title="main.c" tooltip="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/main.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LAN8720/main.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1090" selectionTopPixel="410"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.h" partName="main.h" path="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/main.h" title="main.h" tooltip="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/main.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LAN8720/main.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3301" selectionTopPixel="1175"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="lwipopts.h" partName="lwipopts.h" path="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/lwipopts.h" title="lwipopts.h" tooltip="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/lwipopts.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LAN8720/lwipopts.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_conf.h" partName="stm32f4xx_conf.h" path="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/stm32f4xx_conf.h" title="stm32f4xx_conf.h" tooltip="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/stm32f4xx_conf.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LAN8720/stm32f4xx_conf.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="1294"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_it.c" partName="stm32f4xx_it.c" path="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/stm32f4xx_it.c" title="stm32f4xx_it.c" tooltip="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/stm32f4xx_it.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LAN8720/stm32f4xx_it.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3720" selectionTopPixel="1326"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4x7_eth_conf.h" partName="stm32f4x7_eth_conf.h" path="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/stm32f4x7_eth_conf.h" title="stm32f4x7_eth_conf.h" tooltip="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/stm32f4x7_eth_conf.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LAN8720/stm32f4x7_eth_conf.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4932" selectionTopPixel="1277"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="http_server.h" partName="http_server.h" path="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/http_server.h" title="http_server.h" tooltip="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/http_server.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LAN8720/http_server.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="http_server.c" partName="http_server.c" path="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/http_server.c" title="http_server.c" tooltip="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/http_server.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LAN8720/http_server.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="734" selectionTopPixel="510"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="portevent.c" partName="portevent.c" path="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/Modbus/port/portevent.c" title="portevent.c" tooltip="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/Modbus/port/portevent.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LAN8720/Modbus/port/portevent.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="24" selectionOffset="2476" selectionTopPixel="999"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="FreeRTOS.h" partName="FreeRTOS.h" path="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/FreeRTOS/include/FreeRTOS.h" title="FreeRTOS.h" tooltip="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/FreeRTOS/include/FreeRTOS.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LAN8720/FreeRTOS/include/FreeRTOS.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="24360" selectionTopPixel="4903"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="porttcp.c" partName="porttcp.c" path="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/Modbus/port/porttcp.c" title="porttcp.c" tooltip="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/Modbus/port/porttcp.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LAN8720/Modbus/port/porttcp.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="mbfunc.c" partName="mbfunc.c" path="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/source/mbfunc.c" title="mbfunc.c" tooltip="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/source/mbfunc.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LAN8720/source/mbfunc.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="45" selectionOffset="358" selectionTopPixel="150"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="udp_send.c" partName="udp_send.c" path="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/source/udp_send.c" title="udp_send.c" tooltip="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/source/udp_send.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LAN8720/source/udp_send.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="268" selectionTopPixel="665"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="FreeRTOSConfig.h" partName="FreeRTOSConfig.h" path="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/FreeRTOS/include/FreeRTOSConfig.h" title="FreeRTOSConfig.h" tooltip="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/FreeRTOS/include/FreeRTOSConfig.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LAN8720/FreeRTOS/include/FreeRTOSConfig.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="1" selectionOffset="4909" selectionTopPixel="1230"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="mbinit.h" partName="mbinit.h" path="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/source/mbinit.h" title="mbinit.h" tooltip="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/source/mbinit.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LAN8720/source/mbinit.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="23" selectionOffset="38" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="mbinit.c" partName="mbinit.c" path="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/source/mbinit.c" title="mbinit.c" tooltip="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/source/mbinit.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LAN8720/source/mbinit.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="98" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="portother.c" partName="portother.c" path="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/Modbus/port/portother.c" title="portother.c" tooltip="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/Modbus/port/portother.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LAN8720/Modbus/port/portother.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3690" selectionTopPixel="2178"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="adc_dcmi.c" partName="adc_dcmi.c" path="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/source/adc_dcmi.c" title="adc_dcmi.c" tooltip="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/source/adc_dcmi.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LAN8720/source/adc_dcmi.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5474" selectionTopPixel="2349"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="adc_dcmi.h" partName="adc_dcmi.h" path="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/source/adc_dcmi.h" title="adc_dcmi.h" tooltip="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/source/adc_dcmi.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LAN8720/source/adc_dcmi.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="12" selectionOffset="49" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_gpio.h" partName="stm32f4xx_gpio.h" path="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/cmsis_lib/include/stm32f4xx_gpio.h" title="stm32f4xx_gpio.h" tooltip="D:/PROJECTS/GIT_REPOSITORY/STM32/STM32F4_MODBUS_TCP/cmsis_lib/include/stm32f4xx_gpio.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LAN8720/cmsis_lib/include/stm32f4xx_gpio.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="12" selectionOffset="13553" selectionTopPixel="5219"/>
+</editor>
+<editor activePart="true" focus="true" id="org.coocox.builder.ui.editors.ConfigEditor" name="" partName="Configuration" title="Configuration" tooltip="" workbook="DefaultEditorWorkbook">
+<input factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory">
+<org.coocox.builder.ui.editors.ConfigEditor horizontalPosition="0" subTagIndex="5" verticalPosition="0"/>
+</input>
 </editor>
 </editors>
 <views>
@@ -121,8 +232,13 @@
 <viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="0">
 <expanded>
 <element path="/LAN8720"/>
-<element path="/LAN8720/syscalls"/>
+<element path="/LAN8720/cmsis_lib"/>
+<element path="/LAN8720/cmsis_lib/include"/>
+<element path="/LAN8720/source"/>
 </expanded>
+<selection>
+<element path="/LAN8720/main.c"/>
+</selection>
 </viewState>
 </view>
 <view id="org.eclipse.search.ui.views.SearchView" partName="Search">
@@ -140,8 +256,11 @@
 <view id="org.eclipse.debug.ui.VariableView" partName="Variables">
 <viewState/>
 </view>
+<view id="org.coocox.coassistant.view.CoAssistantView" partName="Peripherals">
+<viewState horizontalPosition="0" verticalPosition="0"/>
+</view>
 </views>
-<perspectives activePart="org.eclipse.cdt.ui.editor.CEditor" activePerspective="org.coocox.builder.perspective.CoBuilder">
+<perspectives activePart="org.coocox.builder.ui.editors.ConfigEditor" activePerspective="org.coocox.builder.perspective.CoBuilder">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.coocox.builder.ui.PerspectiveCoBuilder" id="org.coocox.builder.perspective.CoBuilder" label="CooCox CoBuilder"/>
 <alwaysOnActionSet id="org.coocox.component.ui.actionSet"/>
@@ -174,6 +293,7 @@
 <view id="org.coocox.builder.ui.views.ProjectView"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
 <view id="org.eclipse.search.ui.views.SearchView"/>
+<view id="org.coocox.coassistant.view.CoAssistantView"/>
 <fastViewBars/>
 <layout>
 <mainWindow>
@@ -190,14 +310,16 @@
 </folder>
 </info>
 <info part="org.coocox.builder.ui.exampleView" ratio="0.24428684" ratioLeft="310" ratioRight="959" relationship="2" relative="org.eclipse.ui.internal.ViewStack@1ba0be"/>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@1d8b039" ratio="0.7198068" ratioLeft="894" ratioRight="348" relationship="2" relative="org.coocox.builder.ui.exampleView">
-<folder appearance="2" expanded="2">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@1d8b039" ratio="0.83472806" ratioLeft="798" ratioRight="158" relationship="2" relative="org.coocox.builder.ui.exampleView">
+<folder activePageID="org.coocox.coassistant.view.CoAssistantView" appearance="2" expanded="2">
+<page content="org.coocox.coassistant.view.CoAssistantView" label="Peripherals"/>
 <page content="org.coocox.component.ui.Help" label="LabelNotFound"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
-<page content="org.coocox.coassistant.view.CoAssistantView" label="LabelNotFound"/>
 <page content="org.coocox.builder.ui.MoreExampleView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.4488189" ratioLeft="342" ratioRight="420" relationship="4" relative="org.coocox.builder.ui.exampleView"/>
@@ -246,8 +368,8 @@
 <hide_menu_item_id id="org.coocox.builder.rcp.flashMenu"/>
 <hide_menu_item_id id="org.coocox.builder.ui.debug"/>
 <hide_menu_item_id id="org.coocox.builder.ui.showHelpViewAction"/>
-<hide_menu_item_id id="org.coocox.builder.ui.showHelpViewAction1"/>
 <hide_menu_item_id id="org.coocox.builder.ui.newFile"/>
+<hide_menu_item_id id="org.coocox.builder.ui.showHelpViewAction1"/>
 <hide_menu_item_id id="org.coocox.builder.ui.actions.ConfigurationAction"/>
 <hide_menu_item_id id="org.coocox.builder.ui.builderDefaultLayout"/>
 <hide_menu_item_id id="org.eclipse.jdt.ui.source.menu"/>
@@ -268,8 +390,8 @@
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <hide_toolbar_item_id id="org.coocox.builder.ui.build"/>
 <hide_toolbar_item_id id="org.coocox.welcome.ui.action.welcome"/>
-<hide_toolbar_item_id id="org.coocox.codebugger.configuration.coideProgramDownloadAction"/>
 <hide_toolbar_item_id id="org.coocox.component.ui.ShowRepositoryAction"/>
+<hide_toolbar_item_id id="org.coocox.codebugger.configuration.coideProgramDownloadAction"/>
 <view id="org.coocox.builder.ui.views.ProjectView"/>
 <view id="org.eclipse.debug.ui.ExpressionView"/>
 <view id="org.eclipse.debug.ui.VariableView"/>
@@ -350,175 +472,169 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/LAN8720/main/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/LAN8720/utilities/lwip/port/sys_arch.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/LAN8720/utilities/FreeRTOS/include/FreeRTOSConfig.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/LAN8720/utilities/lwip/port/ethernetif.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/LAN8720/utilities/lwip/src/include/netif/etharp.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/LAN8720/utilities/lwip/port/include/arch/cpu.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/LAN8720/utilities/lwip/port/include/arch/cc.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/LAN8720/cmsis_lib/stm32f4xx_it.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/LAN8720/utilities/FreeRTOS/portable/GCC/ARM_CM4F/port.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/LAN8720/cmsis_boot/system_stm32f4xx.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/LAN8720/main/netconf.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/LAN8720/main/netconf.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/LAN8720/utilities/lwip/src/core/timers.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/LAN8720/utilities/lwip/src/include/lwip/timers.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/LAN8720/STM32F4x7_ETH_Driver/src/stm32f4x7_eth_bsp.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/LAN8720/STM32F4x7_ETH_Driver/src/stm32f4x7_eth.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/LAN8720/cmsis_boot/startup/startup_stm32f4xx.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/LAN8720/utilities/lwip/src/core/ipv4/icmp.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/LAN8720/main.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/LAN8720/source/adc_ext.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/LAN8720/source/adc_dcmi.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/LAN8720/source/adc_dcmi.h"/>
+<editor factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser">
+<subPage/>
+</editor>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/LAN8720/cmsis_lib/include/stm32f4xx_rcc.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/LAN8720/cmsis_lib/include/stm32f4xx_gpio.h"/>
+<editor factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser">
+<subPage/>
+</editor>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/LAN8720/cmsis_lib/source/stm32f4xx_spi.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/LAN8720/cmsis_lib/include/stm32f4xx_dcmi.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/LAN8720/cmsis_lib/source/stm32f4xx_rcc.c"/>
+<editor factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor">
+<org.coocox.builder.ui.editors.ConfigEditor horizontalPosition="0" subTagIndex="5" verticalPosition="0"/>
+</editor>
 </editors>
-<item historyLabel="cc.h" index="6">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="adc_ext.c" index="1">
+<position info="not_deleted" x="0" y="10555"/>
 </item>
-<item historyLabel="etharp.h" index="4">
-<position info="not_deleted" x="6409" y="0"/>
+<item historyLabel="adc_dcmi.c" index="2">
+<position info="not_deleted" x="7460" y="0"/>
 </item>
-<item historyLabel="cc.h" index="6">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="adc_dcmi.c" index="2">
+<position/>
 </item>
-<item historyLabel="cpu.h" index="5">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Repository" index="4"/>
+<item historyLabel="adc_dcmi.c" index="2">
+<position info="not_deleted" x="3578" y="0"/>
 </item>
-<item historyLabel="stm32f4xx_it.c" index="7">
-<position info="not_deleted" x="3051" y="0"/>
+<item historyLabel="stm32f4xx_rcc.h" index="5">
+<position/>
 </item>
-<item historyLabel="FreeRTOSConfig.h" index="2">
-<position info="not_deleted" x="7068" y="0"/>
+<item historyLabel="adc_dcmi.c" index="2">
+<position/>
 </item>
-<item historyLabel="port.c" index="8">
-<position info="not_deleted" x="19059" y="19"/>
+<item historyLabel="stm32f4xx_gpio.h" index="6">
+<position info="not_deleted" x="13553" y="12"/>
+</item>
+<item historyLabel="adc_dcmi.c" index="2">
+<position info="not_deleted" x="5190" y="0"/>
+</item>
+<item historyLabel="Repository" index="7"/>
+<item historyLabel="adc_dcmi.c" index="2">
+<position/>
+</item>
+<item historyLabel="stm32f4xx_spi.c" index="8">
+<position/>
+</item>
+<item historyLabel="adc_dcmi.c" index="2">
+<position/>
+</item>
+<item historyLabel="stm32f4xx_dcmi.h" index="9">
+<position/>
+</item>
+<item historyLabel="adc_dcmi.c" index="2">
+<position/>
+</item>
+<item historyLabel="stm32f4xx_spi.c" index="8">
+<position info="not_deleted" x="39697" y="14"/>
+</item>
+<item historyLabel="adc_dcmi.c" index="2">
+<position/>
+</item>
+<item historyLabel="stm32f4xx_dcmi.h" index="9">
+<position/>
+</item>
+<item historyLabel="adc_dcmi.c" index="2">
+<position/>
+</item>
+<item historyLabel="adc_dcmi.c" index="2">
+<position info="not_deleted" x="293" y="0"/>
+</item>
+<item historyLabel="adc_dcmi.c" index="2">
+<position info="not_deleted" x="4956" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_dcmi.h" index="9">
+<position/>
+</item>
+<item historyLabel="adc_dcmi.c" index="2">
+<position info="not_deleted" x="5146" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_dcmi.h" index="9">
+<position info="not_deleted" x="2007" y="16"/>
+</item>
+<item historyLabel="adc_dcmi.c" index="2">
+<position info="not_deleted" x="5146" y="0"/>
+</item>
+<item historyLabel="adc_dcmi.c" index="2">
+<position info="not_deleted" x="4883" y="0"/>
+</item>
+<item historyLabel="adc_dcmi.c" index="2">
+<position info="not_deleted" x="5461" y="53"/>
+</item>
+<item historyLabel="adc_dcmi.c" index="2">
+<position info="not_deleted" x="188" y="0"/>
+</item>
+<item historyLabel="adc_dcmi.c" index="2">
+<position info="not_deleted" x="5973" y="13"/>
+</item>
+<item historyLabel="stm32f4xx_rcc.h" index="5">
+<position/>
+</item>
+<item historyLabel="adc_dcmi.c" index="2">
+<position info="not_deleted" x="5470" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_rcc.c" index="10">
+<position info="not_deleted" x="22754" y="21"/>
+</item>
+<item historyLabel="adc_dcmi.c" index="2">
+<position info="not_deleted" x="5471" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_rcc.c" index="10">
+<position info="not_deleted" x="23024" y="13"/>
+</item>
+<item historyLabel="adc_dcmi.c" index="2">
+<position info="not_deleted" x="5471" y="0"/>
+</item>
+<item historyLabel="adc_dcmi.c" index="2">
+<position info="not_deleted" x="5512" y="0"/>
+</item>
+<item historyLabel="adc_dcmi.c" index="2">
+<position info="not_deleted" x="537" y="3"/>
+</item>
+<item historyLabel="adc_ext.c" index="1">
+<position info="not_deleted" x="519" y="3"/>
+</item>
+<item historyLabel="adc_dcmi.c" index="2">
+<position info="not_deleted" x="517" y="12"/>
+</item>
+<item historyLabel="adc_dcmi.h" index="3">
+<position info="not_deleted" x="49" y="12"/>
 </item>
 <item historyLabel="main.c" index="0">
-<position info="not_deleted" x="641" y="0"/>
-</item>
-<item historyLabel="system_stm32f4xx.c" index="9">
-<position/>
+<position info="not_deleted" x="331" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
-<position info="not_deleted" x="638" y="0"/>
+<position info="not_deleted" x="1090" y="0"/>
 </item>
-<item historyLabel="system_stm32f4xx.c" index="9">
+<item historyLabel="adc_dcmi.c" index="2">
+<position info="not_deleted" x="517" y="12"/>
+</item>
+<item historyLabel="adc_dcmi.c" index="2">
+<position info="not_deleted" x="577" y="0"/>
+</item>
+<item historyLabel="adc_dcmi.c" index="2">
 <position/>
 </item>
-<item historyLabel="netconf.h" index="10">
-<position info="not_deleted" x="2490" y="0"/>
-</item>
-<item historyLabel="system_stm32f4xx.c" index="9">
+<item historyLabel="stm32f4xx_rcc.h" index="5">
 <position/>
 </item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="767" y="0"/>
+<item historyLabel="adc_dcmi.c" index="2">
+<position info="not_deleted" x="5489" y="0"/>
 </item>
-<item historyLabel="netconf.c" index="11">
-<position info="not_deleted" x="4354" y="0"/>
+<item historyLabel="stm32f4xx_rcc.h" index="5">
+<position info="not_deleted" x="17233" y="18"/>
 </item>
-<item historyLabel="ethernetif.c" index="3">
-<position info="not_deleted" x="10424" y="0"/>
+<item historyLabel="adc_dcmi.c" index="2">
+<position info="not_deleted" x="5474" y="0"/>
 </item>
-<item historyLabel="timers.c" index="12">
-<position info="not_deleted" x="7161" y="0"/>
-</item>
-<item historyLabel="timers.h" index="13">
-<position info="not_deleted" x="2354" y="19"/>
-</item>
-<item historyLabel="timers.c" index="12">
-<position info="not_deleted" x="7161" y="0"/>
-</item>
-<item historyLabel="ethernetif.c" index="3">
-<position info="not_deleted" x="10424" y="0"/>
-</item>
-<item historyLabel="netconf.c" index="11">
-<position info="not_deleted" x="4354" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="749" y="0"/>
-</item>
-<item historyLabel="stm32f4x7_eth_bsp.c" index="14">
-<position info="not_deleted" x="3192" y="0"/>
-</item>
-<item historyLabel="system_stm32f4xx.c" index="9">
-<position/>
-</item>
-<item historyLabel="stm32f4x7_eth_bsp.c" index="14">
-<position info="not_deleted" x="3192" y="0"/>
-</item>
-<item historyLabel="system_stm32f4xx.c" index="9">
-<position/>
-</item>
-<item historyLabel="stm32f4x7_eth_bsp.c" index="14">
-<position info="not_deleted" x="3192" y="0"/>
-</item>
-<item historyLabel="system_stm32f4xx.c" index="9">
-<position/>
-</item>
-<item historyLabel="system_stm32f4xx.c" index="9">
-<position/>
-</item>
-<item historyLabel="stm32f4x7_eth_bsp.c" index="14">
-<position info="not_deleted" x="3192" y="0"/>
-</item>
-<item historyLabel="system_stm32f4xx.c" index="9">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="system_stm32f4xx.c" index="9">
-<position info="not_deleted" x="2868" y="0"/>
-</item>
-<item historyLabel="stm32f4x7_eth_bsp.c" index="14">
-<position info="not_deleted" x="3192" y="0"/>
-</item>
-<item historyLabel="stm32f4x7_eth.c" index="15">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="sys_arch.c" index="1">
-<position info="not_deleted" x="7361" y="0"/>
-</item>
-<item historyLabel="ethernetif.c" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="startup_stm32f4xx.c" index="16">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="633" y="0"/>
-</item>
-<item historyLabel="sys_arch.c" index="1">
-<position info="not_deleted" x="14676" y="0"/>
-</item>
-<item historyLabel="ethernetif.c" index="3">
-<position info="not_deleted" x="7581" y="0"/>
-</item>
-<item historyLabel="ethernetif.c" index="3">
-<position info="not_deleted" x="7338" y="0"/>
-</item>
-<item historyLabel="ethernetif.c" index="3">
-<position info="not_deleted" x="7581" y="0"/>
-</item>
-<item historyLabel="ethernetif.c" index="3">
-<position info="not_deleted" x="7643" y="0"/>
-</item>
-<item historyLabel="ethernetif.c" index="3">
-<position info="not_deleted" x="7581" y="0"/>
-</item>
-<item historyLabel="ethernetif.c" index="3">
-<position info="not_deleted" x="7728" y="0"/>
-</item>
-<item historyLabel="ethernetif.c" index="3">
-<position info="not_deleted" x="7581" y="0"/>
-</item>
-<item historyLabel="ethernetif.c" index="3">
-<position info="not_deleted" x="7521" y="0"/>
-</item>
-<item historyLabel="ethernetif.c" index="3">
-<position info="not_deleted" x="7581" y="0"/>
-</item>
-<item historyLabel="icmp.c" index="17">
-<position info="not_deleted" x="3169" y="65"/>
-</item>
-<item active="true" historyLabel="ethernetif.c" index="3">
-<position info="not_deleted" x="7581" y="0"/>
-</item>
+<item active="true" historyLabel="Configuration" index="11"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
@@ -526,50 +642,56 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="icmp.c" tooltip="LAN8720/utilities/lwip/src/core/ipv4/icmp.c">
-<persistable path="/LAN8720/utilities/lwip/src/core/ipv4/icmp.c"/>
+<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor" name="" tooltip="">
+<persistable>
+<org.coocox.builder.ui.editors.ConfigEditor horizontalPosition="0" subTagIndex="5" verticalPosition="0"/>
+</persistable>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ethernetif.c" tooltip="LAN8720/utilities/lwip/port/ethernetif.c">
-<persistable path="/LAN8720/utilities/lwip/port/ethernetif.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_rcc.h" tooltip="LAN8720/cmsis_lib/include/stm32f4xx_rcc.h">
+<persistable path="/LAN8720/cmsis_lib/include/stm32f4xx_rcc.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4x7_eth.c" tooltip="LAN8720/STM32F4x7_ETH_Driver/src/stm32f4x7_eth.c">
-<persistable path="/LAN8720/STM32F4x7_ETH_Driver/src/stm32f4x7_eth.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_rcc.c" tooltip="LAN8720/cmsis_lib/source/stm32f4xx_rcc.c">
+<persistable path="/LAN8720/cmsis_lib/source/stm32f4xx_rcc.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="system_stm32f4xx.c" tooltip="LAN8720/cmsis_boot/system_stm32f4xx.c">
-<persistable path="/LAN8720/cmsis_boot/system_stm32f4xx.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_dcmi.h" tooltip="LAN8720/cmsis_lib/include/stm32f4xx_dcmi.h">
+<persistable path="/LAN8720/cmsis_lib/include/stm32f4xx_dcmi.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4x7_eth_bsp.c" tooltip="LAN8720/STM32F4x7_ETH_Driver/src/stm32f4x7_eth_bsp.c">
-<persistable path="/LAN8720/STM32F4x7_ETH_Driver/src/stm32f4x7_eth_bsp.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_spi.c" tooltip="LAN8720/cmsis_lib/source/stm32f4xx_spi.c">
+<persistable path="/LAN8720/cmsis_lib/source/stm32f4xx_spi.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="timers.h" tooltip="LAN8720/utilities/lwip/src/include/lwip/timers.h">
-<persistable path="/LAN8720/utilities/lwip/src/include/lwip/timers.h"/>
+<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
+<persistable>
+<subPage/>
+</persistable>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="timers.c" tooltip="LAN8720/utilities/lwip/src/core/timers.c">
-<persistable path="/LAN8720/utilities/lwip/src/core/timers.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_gpio.h" tooltip="LAN8720/cmsis_lib/include/stm32f4xx_gpio.h">
+<persistable path="/LAN8720/cmsis_lib/include/stm32f4xx_gpio.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="netconf.c" tooltip="LAN8720/main/netconf.c">
-<persistable path="/LAN8720/main/netconf.c"/>
+<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
+<persistable>
+<subPage/>
+</persistable>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="netconf.h" tooltip="LAN8720/main/netconf.h">
-<persistable path="/LAN8720/main/netconf.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="adc_dcmi.h" tooltip="LAN8720/source/adc_dcmi.h">
+<persistable path="/LAN8720/source/adc_dcmi.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="port.c" tooltip="LAN8720/utilities/FreeRTOS/portable/GCC/ARM_CM4F/port.c">
-<persistable path="/LAN8720/utilities/FreeRTOS/portable/GCC/ARM_CM4F/port.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="adc_dcmi.c" tooltip="LAN8720/source/adc_dcmi.c">
+<persistable path="/LAN8720/source/adc_dcmi.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="FreeRTOSConfig.h" tooltip="LAN8720/utilities/FreeRTOS/include/FreeRTOSConfig.h">
-<persistable path="/LAN8720/utilities/FreeRTOS/include/FreeRTOSConfig.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="adc_ext.h" tooltip="LAN8720/source/adc_ext.h">
+<persistable path="/LAN8720/source/adc_ext.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_it.c" tooltip="LAN8720/cmsis_lib/stm32f4xx_it.c">
-<persistable path="/LAN8720/cmsis_lib/stm32f4xx_it.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="portother.c" tooltip="LAN8720/Modbus/port/portother.c">
+<persistable path="/LAN8720/Modbus/port/portother.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="bpstruct.h" tooltip="LAN8720/utilities/lwip/port/include/arch/bpstruct.h">
-<persistable path="/LAN8720/utilities/lwip/port/include/arch/bpstruct.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="port.h" tooltip="LAN8720/Modbus/port/port.h">
+<persistable path="/LAN8720/Modbus/port/port.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="cc.h" tooltip="LAN8720/utilities/lwip/port/include/arch/cc.h">
-<persistable path="/LAN8720/utilities/lwip/port/include/arch/cc.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="task.h" tooltip="LAN8720/FreeRTOS/include/task.h">
+<persistable path="/LAN8720/FreeRTOS/include/task.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="cpu.h" tooltip="LAN8720/utilities/lwip/port/include/arch/cpu.h">
-<persistable path="/LAN8720/utilities/lwip/port/include/arch/cpu.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="mbinit.c" tooltip="LAN8720/source/mbinit.c">
+<persistable path="/LAN8720/source/mbinit.c"/>
 </file>
 </mruList>
 </workbench>
