@@ -40,10 +40,9 @@ void ADC_DCMI_Tim_Init(void)
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM9, ENABLE);
 
 	 //RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOE, ENABLE);
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB|RCC_AHB1Periph_GPIOD|RCC_AHB1Periph_GPIOE, ENABLE);
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA|RCC_AHB1Periph_GPIOB|RCC_AHB1Periph_GPIOD|RCC_AHB1Periph_GPIOE, ENABLE);
 
 	 //-------------ETR_CONFIG-------------------
-	  //GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7;
 	  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
 	  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 	  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
@@ -52,18 +51,15 @@ void ADC_DCMI_Tim_Init(void)
 	  //GPIO_Init(GPIOE, &GPIO_InitStructure);
 	  GPIO_Init(GPIOD, &GPIO_InitStructure);
 
-	  //GPIO_PinAFConfig(GPIOE, GPIO_PinSource7, GPIO_AF_TIM1);
 	  GPIO_PinAFConfig(GPIOD, GPIO_PinSource2, GPIO_AF_TIM3);
 
 	  //------------------------------------------
-	// GPIO_InitStructure.GPIO_Pin   = GPIO_Pin_9 ;
 	 GPIO_InitStructure.GPIO_Pin   = GPIO_Pin_4 ;
 	 GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF;
 	 GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
 	 GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
 	 GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_NOPULL;
-//	 GPIO_Init(GPIOE, &GPIO_InitStructure);
-//	 GPIO_PinAFConfig(GPIOE, GPIO_PinSource9, GPIO_AF_TIM1);
+
 	 GPIO_Init(GPIOB, &GPIO_InitStructure);
 	 GPIO_PinAFConfig(GPIOB, GPIO_PinSource4, GPIO_AF_TIM3);
 
@@ -74,7 +70,6 @@ void ADC_DCMI_Tim_Init(void)
 	 TIM_TimeBaseStructure.TIM_Period = 420;//1680;
 	 TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
 	 TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
-	 //TIM_TimeBaseInit(TIM1, &TIM_TimeBaseStructure);
 	 TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure);
 
 //	 TIM_ETRClockMode2Config(TIM1, TIM_ExtTRGPSC_OFF, TIM_ExtTRGPolarity_NonInverted, 0);
@@ -88,13 +83,6 @@ void ADC_DCMI_Tim_Init(void)
 	 TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
 	 TIM_OCInitStructure.TIM_OCIdleState = TIM_OCIdleState_Set;
 
-//	 TIM_OC1Init(TIM1, &TIM_OCInitStructure);
-//	 TIM_OC1PreloadConfig(TIM1, TIM_OCPreload_Enable);
-//
-//	 TIM_ARRPreloadConfig(TIM1, ENABLE);
-//
-//	 TIM_Cmd(TIM1, ENABLE);
-//	 TIM_CtrlPWMOutputs(TIM1, ENABLE);
 
 	 TIM_SelectOutputTrigger(TIM3, TIM_TRGOSource_Update);
 
@@ -118,6 +106,15 @@ void ADC_DCMI_Tim_Init(void)
 	  GPIO_Init(GPIOE, &GPIO_InitStructure);
 
 	  GPIO_PinAFConfig(GPIOE, GPIO_PinSource5, GPIO_AF_TIM9);
+
+	  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3;
+	  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+	  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+	  GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+	  GPIO_Init(GPIOA, &GPIO_InitStructure);
+
+	  GPIO_PinAFConfig(GPIOA, GPIO_PinSource3, GPIO_AF_TIM9);
 
 
 	 /* Time base configuration */
@@ -146,6 +143,9 @@ void ADC_DCMI_Tim_Init(void)
 
 	 TIM_OC1Init(TIM9, &TIM_OCInitStructure);
 	 TIM_OC1PreloadConfig(TIM9, TIM_OCPreload_Enable);
+
+	 TIM_OC2Init(TIM9, &TIM_OCInitStructure);
+	 TIM_OC2PreloadConfig(TIM9, TIM_OCPreload_Enable);
 
 	 TIM_ARRPreloadConfig(TIM9, ENABLE);
 
@@ -177,14 +177,24 @@ void ADC_DCMI_Core_Init(void)
 	  GPIO_PinAFConfig(GPIOA, GPIO_PinSource8, GPIO_AF_MCO );
 
 
-		//RCC_MCO1Config(RCC_MCO1Source_PLLCLK,RCC_MCO1Div_4);
-		RCC_MCO1Config(RCC_MCO1Source_HSE,RCC_MCO1Div_1);
+		RCC_MCO1Config(RCC_MCO1Source_PLLCLK,RCC_MCO1Div_4);
+		//RCC_MCO1Config(RCC_MCO1Source_HSE,RCC_MCO1Div_1);
 
 
-	  GPIO_PinAFConfig(GPIOA, GPIO_PinSource4|GPIO_PinSource6, GPIO_AF_DCMI );
-	  GPIO_PinAFConfig(GPIOB, GPIO_PinSource6|GPIO_PinSource7, GPIO_AF_DCMI );
-	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource6|GPIO_PinSource7|GPIO_PinSource8|GPIO_PinSource9, GPIO_AF_DCMI );
-	  GPIO_PinAFConfig(GPIOE, GPIO_PinSource4|GPIO_PinSource5|GPIO_PinSource6, GPIO_AF_DCMI );
+	  GPIO_PinAFConfig(GPIOA, GPIO_PinSource4, GPIO_AF_DCMI );
+	  GPIO_PinAFConfig(GPIOA, GPIO_PinSource6, GPIO_AF_DCMI );
+
+	  GPIO_PinAFConfig(GPIOB, GPIO_PinSource6, GPIO_AF_DCMI );
+	  GPIO_PinAFConfig(GPIOB, GPIO_PinSource7, GPIO_AF_DCMI );
+
+	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource6, GPIO_AF_DCMI );
+	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource7, GPIO_AF_DCMI );
+	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource8, GPIO_AF_DCMI );
+	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource9, GPIO_AF_DCMI );
+
+	  GPIO_PinAFConfig(GPIOE, GPIO_PinSource4, GPIO_AF_DCMI );
+	  GPIO_PinAFConfig(GPIOE, GPIO_PinSource5, GPIO_AF_DCMI );
+	  GPIO_PinAFConfig(GPIOE, GPIO_PinSource6, GPIO_AF_DCMI );
 
 	  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 	  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
@@ -237,16 +247,16 @@ void ADC_DCMI_Core_Init(void)
 
 	  //--------------DMA RX---------------------
 
-	    DMA_InitStructure.DMA_BufferSize = RX_BUFF_SIZE;
+	    DMA_InitStructure.DMA_BufferSize = RX_BUFF_SIZE/4;
 	    DMA_InitStructure.DMA_Channel = DMA_Channel_1;
 	    DMA_InitStructure.DMA_Memory0BaseAddr =(uint32_t)DCMIAdcRxBuff;
 	    DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t) (&DCMI->DR);
 	    DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralToMemory;
 	    DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
 	    DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
-	    DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_HalfWord;
-	    DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_HalfWord;
-	    DMA_InitStructure.DMA_Mode =  DMA_Mode_Circular; //DMA_Mode_Normal;
+	    DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Word;
+	    DMA_InitStructure.DMA_MemoryDataSize = DMA_PeripheralDataSize_Word;
+	    DMA_InitStructure.DMA_Mode =  DMA_Mode_Circular;
 	    DMA_InitStructure.DMA_Priority = DMA_Priority_High;
 	    DMA_InitStructure.DMA_FIFOMode = DMA_FIFOMode_Disable;
 	    DMA_InitStructure.DMA_FIFOThreshold = DMA_FIFOThreshold_HalfFull;

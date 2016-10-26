@@ -91,7 +91,7 @@ void Delay(uint32_t nCount);
 
 
 #define ADC_EXT
-#define ADC_BUF_LEN 4096//32768
+#define ADC_BUF_LEN 256//32768
 #define ADC_CHN_NUM	4
 
 
