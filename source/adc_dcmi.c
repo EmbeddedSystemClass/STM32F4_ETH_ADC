@@ -8,6 +8,11 @@
 #include "stm32f4xx_rcc.h"
 #include "stm32f4xx_dcmi.h"
 
+#include "FreeRTOS.h"
+#include "task.h"
+#include "semphr.h"
+
+
 #define RX_BUFF_SIZE	ADC_BUF_LEN
 //#define SPI1_TX_BUFF_SIZE	4
 __IO uint8_t DCMIAdcRxBuff[RX_BUFF_SIZE];
@@ -16,6 +21,8 @@ __IO uint8_t DCMIAdcRxBuff[RX_BUFF_SIZE];
 uint16_t *ADC_buf_pnt;
 uint8_t  ADC_buf_full_flag=0;
 uint16_t ADC_last_data[ADC_CHN_NUM];
+
+extern SemaphoreHandle_t xUDP_Send_Semaphore;
 
 void ADC_DCMI_Tim_Init(void);
 void ADC_DCMI_Core_Init(void);
@@ -229,18 +236,18 @@ void ADC_DCMI_Core_Init(void)
 
 		///--------------]
 	    // прерывание DCMI
-	    DCMI_ITConfig(DCMI_IT_VSYNC, ENABLE);
-	    DCMI_ITConfig(DCMI_IT_LINE, ENABLE);
-	    DCMI_ITConfig(DCMI_IT_FRAME, ENABLE);
-	    DCMI_ITConfig(DCMI_IT_OVF, ENABLE);
-	    DCMI_ITConfig(DCMI_IT_ERR, ENABLE);
-
-	    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
-	    NVIC_InitStructure.NVIC_IRQChannel = DCMI_IRQn;
-	    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 7;
-	    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-	    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-	    NVIC_Init(&NVIC_InitStructure);
+//	    DCMI_ITConfig(DCMI_IT_VSYNC, ENABLE);
+//	    DCMI_ITConfig(DCMI_IT_LINE, ENABLE);
+//	    DCMI_ITConfig(DCMI_IT_FRAME, ENABLE);
+//	    DCMI_ITConfig(DCMI_IT_OVF, ENABLE);
+//	    DCMI_ITConfig(DCMI_IT_ERR, ENABLE);
+//
+//	    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
+//	    NVIC_InitStructure.NVIC_IRQChannel = DCMI_IRQn;
+//	    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 7;
+//	    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+//	    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+//	    NVIC_Init(&NVIC_InitStructure);
 		///--------------]
 
 
@@ -278,19 +285,26 @@ void ADC_DCMI_Core_Init(void)
 
 void DMA2_Stream1_IRQHandler(void)
 {
+	static portBASE_TYPE xHigherPriorityTaskWoken;
+	xHigherPriorityTaskWoken = pdFALSE;
+
 	if (DMA_GetITStatus(DMA2_Stream1,DMA_IT_HTIF1))
 	{
 		DMA_ClearITPendingBit ( DMA2_Stream1, DMA_IT_HTIF1);
 		ADC_buf_pnt=&DCMIAdcRxBuff[0];
-		ADC_buf_full_flag=1;
 	}
 
 	if (DMA_GetITStatus(DMA2_Stream1,DMA_IT_TCIF1))
 	{
 		DMA_ClearITPendingBit ( DMA2_Stream1, DMA_IT_TCIF1);
 		ADC_buf_pnt=&DCMIAdcRxBuff[ADC_BUF_LEN>>1];
-		ADC_buf_full_flag=1;
 	}
+
+	  xSemaphoreGiveFromISR( xUDP_Send_Semaphore, &xHigherPriorityTaskWoken );
+	  if( xHigherPriorityTaskWoken == pdTRUE )
+	  {
+
+	  }
 }
 
 void DCMI_IRQHandler(void)

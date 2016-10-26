@@ -49,14 +49,15 @@ void LwIP_Init(void)
 int main()
 {
     /* configure Ethernet (GPIOs, clocks, MAC, DMA) */ 
-//    ETH_BSP_Config();
-//
-//    /* Initilaize the LwIP stack */
-//    LwIP_Init();
-//    MB_TCP_Init();
-    ADC_Ext_Init();
+    ETH_BSP_Config();
 
-//    xTaskCreate(http_server_netconn_thread, "HTTP", 512, NULL, 2, ( TaskHandle_t * ) NULL);
+    /* Initilaize the LwIP stack */
+    LwIP_Init();
+    MB_TCP_Init();
+    ADC_Ext_Init();
+    udp_client_init();
+
+    xTaskCreate(http_server_netconn_thread, "HTTP", 512, NULL, 1, ( TaskHandle_t * ) NULL);
 
     vTaskStartScheduler();
     return 0;

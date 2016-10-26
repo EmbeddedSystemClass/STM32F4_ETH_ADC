@@ -7,7 +7,12 @@
 #include "adc.h"
 #include <stdio.h>
 #include <string.h>
-#include "adc.h"
+#include "adc_dcmi.h"
+
+#include "FreeRTOS.h"
+#include "task.h"
+#include "semphr.h"
+
 
 #define UDP_ADC_PACKET_SIZE	1024
 #define UDP_PACKET_SEND_DELAY 1000
@@ -17,7 +22,7 @@
 #define SERVER_IP_ADDR2   109
 #define SERVER_IP_ADDR3   140
 
-#define SERVER_PORT		  70
+#define SERVER_PORT		  1000
 
 struct udp_pcb *client_pcb;
 struct pbuf *pb;
@@ -26,6 +31,10 @@ struct ip_addr DestIPaddr;
 extern uint16_t *ADC_buf_pnt;
 
 uint16_t adc_buf_offset=0;
+
+SemaphoreHandle_t xUDP_Send_Semaphore = NULL;
+
+void UDP_Send_Task( void *pvParameters );
 
 #pragma pack(push,1)
 typedef struct
@@ -45,6 +54,9 @@ void udp_client_init(void)
   pb = pbuf_alloc(PBUF_TRANSPORT,sizeof(UDPPacket), PBUF_REF);
   pb->len = pb->tot_len = sizeof(UDPPacket);
   pb->payload = (uint8_t*)&UDPPacket;
+
+  vSemaphoreCreateBinary( xUDP_Send_Semaphore );
+  xTaskCreate( UDP_Send_Task, "UDP Task", 512, NULL, 2, NULL );
 }
 
 inline void delay(uint32_t time)
@@ -61,7 +73,7 @@ void udp_client_send_buf(void)
  // UDPPacket.timestamp=Timestamp_GetLastTimestamp();
   if (client_pcb != NULL)
   {
-	while(adc_buf_offset!=ADC_BUF_LEN)
+	while(adc_buf_offset!=(ADC_BUF_LEN>>1))
 	{
 		memcpy(&UDPPacket.data,((uint8_t*)ADC_buf_pnt+adc_buf_offset),UDP_ADC_PACKET_SIZE);
 		err=udp_sendto(client_pcb, pb,&DestIPaddr,SERVER_PORT);
@@ -72,6 +84,14 @@ void udp_client_send_buf(void)
   }
 }
 
+void UDP_Send_Task( void *pvParameters )
+{
+	while(1)
+	{
+		xSemaphoreTake( xUDP_Send_Semaphore, portMAX_DELAY );
+		udp_client_send_buf();
+	}
+}
 
 
 
