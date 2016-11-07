@@ -609,11 +609,6 @@
       <source file="..\..\..\stm32f4x7_eth_bsp.h" lastModified="157e660e900">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
-      <source file="..\..\..\stm32f4x7_eth_bsp.c" lastModified="157e66250be">
-         <include file="..\..\..\STM32F4x7_ETH_Driver\inc\stm32f4x7_eth.h"/>
-         <include file="..\..\..\stm32f4x7_eth_bsp.h"/>
-         <include file="..\..\..\main.h"/>
-      </source>
       <source file="..\..\..\lwip\src\include\lwip\pbuf.h" lastModified="14b824baae0">
          <include file="..\..\..\lwip\src\include\lwip\opt.h"/>
          <include file="..\..\..\lwip\src\include\lwip\err.h"/>
@@ -1866,11 +1861,6 @@
       <source file="..\..\..\stm32f4x7_eth_bsp.h" lastModified="157e660e900">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
-      <source file="..\..\..\stm32f4x7_eth_bsp.c" lastModified="157e66250be">
-         <include file="..\..\..\STM32F4x7_ETH_Driver\inc\stm32f4x7_eth.h"/>
-         <include file="..\..\..\stm32f4x7_eth_bsp.h"/>
-         <include file="..\..\..\main.h"/>
-      </source>
       <source file="..\..\..\lwip\src\include\lwip\pbuf.h" lastModified="14b824baae0">
          <include file="..\..\..\lwip\src\include\lwip\opt.h"/>
          <include file="..\..\..\lwip\src\include\lwip\err.h"/>
@@ -2447,7 +2437,7 @@
          <include file="..\..\..\lwip\src\include\lwip\netif.h"/>
          <include file="..\..\..\lwip\src\include\lwip\pbuf.h"/>
       </source>
-      <source file="..\..\..\main.c" lastModified="15806609c90">
+      <source file="..\..\..\main.c" lastModified="1583e6c4163">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
          <include file="..\..\..\FreeRTOS\include\FreeRTOS.h"/>
          <include file="..\..\..\FreeRTOS\include\task.h"/>
@@ -2677,7 +2667,7 @@
       </source>
       <source file="..\..\..\lwip\port\include\arch\perf.h" lastModified="14b824baae0">
       </source>
-      <source file="..\..\..\source\udp_send.c" lastModified="15801291c42">
+      <source file="..\..\..\source\udp_send.c" lastModified="1583e7b369d">
          <include file="..\..\..\lwip\src\include\lwip\debug.h"/>
          <include file="..\..\..\lwip\src\include\lwip\stats.h"/>
          <include file="..\..\..\lwip\src\include\lwip\udp.h"/>
@@ -2771,18 +2761,6 @@
          <include file="..\..\..\lwip\src\include\lwip\opt.h"/>
          <include file="..\..\..\lwip\src\include\lwip\pbuf.h"/>
          <include file="..\..\..\lwip\src\include\ipv4\lwip\ip_addr.h"/>
-      </source>
-      <source file="..\..\..\source\adc_dcmi.c" lastModified="158246fc570">
-         <include file="..\..\..\main.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_spi.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_dma.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_dcmi.h"/>
-         <include file="..\..\..\FreeRTOS\include\FreeRTOS.h"/>
-         <include file="..\..\..\FreeRTOS\include\task.h"/>
-         <include file="..\..\..\FreeRTOS\include\semphr.h"/>
       </source>
       <source file="..\..\..\lwip\port\include\arch\cc.h" lastModified="14b824baae0">
          <include file="..\..\..\lwip\port\include\arch\cpu.h"/>
@@ -3169,7 +3147,7 @@
       <source file="..\..\..\stm32f4x7_eth_bsp.h" lastModified="157e660e900">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
-      <source file="..\..\..\stm32f4x7_eth_bsp.c" lastModified="157e66250be">
+      <source file="..\..\..\stm32f4x7_eth_bsp.c" lastModified="1583e6f6df3">
          <include file="..\..\..\STM32F4x7_ETH_Driver\inc\stm32f4x7_eth.h"/>
          <include file="..\..\..\stm32f4x7_eth_bsp.h"/>
          <include file="..\..\..\main.h"/>

@@ -7,6 +7,7 @@
 #include "stm32f4xx_gpio.h"
 #include "stm32f4xx_rcc.h"
 #include "stm32f4xx_dcmi.h"
+#include "misc.h"
 
 #include "FreeRTOS.h"
 #include "task.h"
@@ -22,7 +23,7 @@ uint16_t ADC_last_data[ADC_CHN_NUM];
 
 extern SemaphoreHandle_t xUDP_Send_Semaphore;
 
-void DCMI_TestTask( void *pvParameters );
+//void DCMI_TestTask( void *pvParameters );
 
 void ADC_DCMI_Tim_Init(void);
 void ADC_DCMI_Core_Init(void);
@@ -31,8 +32,8 @@ void ADC_Ext_Init(void)
 {
 
 	ADC_DCMI_Core_Init();
-//	ADC_DCMI_Tim_Init();
-	xTaskCreate( DCMI_TestTask, "DCMI TEST", 256, NULL, 2, NULL );
+	ADC_DCMI_Tim_Init();
+//	xTaskCreate( DCMI_TestTask, "DCMI TEST", 256, NULL, 2, NULL );
 }
 
 void ADC_DCMI_Tim_Init(void)
@@ -58,8 +59,8 @@ void ADC_DCMI_Tim_Init(void)
 	  GPIO_PinAFConfig(GPIOA, GPIO_PinSource8, GPIO_AF_MCO );
 
 
-		//RCC_MCO1Config(RCC_MCO1Source_PLLCLK,RCC_MCO1Div_4);
-	  RCC_MCO1Config(RCC_MCO1Source_HSE,RCC_MCO1Div_1);
+	  RCC_MCO1Config(RCC_MCO1Source_PLLCLK,RCC_MCO1Div_4);
+	  //RCC_MCO1Config(RCC_MCO1Source_HSE,RCC_MCO1Div_1);
 
 
 	 //-------------ETR_CONFIG-------------------
@@ -180,12 +181,8 @@ void ADC_DCMI_Core_Init(void)
 	  NVIC_InitTypeDef NVIC_InitStructure;
 	  DCMI_InitTypeDef DCMI_InitStructure;
 
-	  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
-	  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);
-	  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
-	  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOE, ENABLE);
-
-	  //RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_DMA2, ENABLE);
+	  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA|RCC_AHB1Periph_GPIOB|RCC_AHB1Periph_GPIOC|RCC_AHB1Periph_GPIOE, ENABLE);
+	  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_DMA2, ENABLE);
 	  RCC_AHB2PeriphClockCmd(RCC_AHB2Periph_DCMI, ENABLE);
 
 	  //---------------------------------------------------
@@ -199,6 +196,22 @@ void ADC_DCMI_Core_Init(void)
 //
 //	  	GPIO_ResetBits(GPIOA,GPIO_Pin_3);
 	  //---------------------------------------------------
+
+
+	  GPIO_PinAFConfig(GPIOA, GPIO_PinSource4, GPIO_AF_DCMI );
+	  GPIO_PinAFConfig(GPIOA, GPIO_PinSource6, GPIO_AF_DCMI );
+
+	  GPIO_PinAFConfig(GPIOB, GPIO_PinSource6, GPIO_AF_DCMI );
+	  GPIO_PinAFConfig(GPIOB, GPIO_PinSource7, GPIO_AF_DCMI );
+
+	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource6, GPIO_AF_DCMI );
+	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource7, GPIO_AF_DCMI );
+	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource8, GPIO_AF_DCMI );
+	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource9, GPIO_AF_DCMI );
+
+	  GPIO_PinAFConfig(GPIOE, GPIO_PinSource4, GPIO_AF_DCMI );
+	  GPIO_PinAFConfig(GPIOE, GPIO_PinSource5, GPIO_AF_DCMI );
+	  GPIO_PinAFConfig(GPIOE, GPIO_PinSource6, GPIO_AF_DCMI );
 
 	  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 	  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
@@ -218,37 +231,21 @@ void ADC_DCMI_Core_Init(void)
 	  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_4|GPIO_Pin_5|GPIO_Pin_6;
 	  GPIO_Init(GPIOE, &GPIO_InitStructure);
 
-
-	  GPIO_PinAFConfig(GPIOA, GPIO_PinSource4, GPIO_AF_DCMI );
-	  GPIO_PinAFConfig(GPIOA, GPIO_PinSource6, GPIO_AF_DCMI );
-
-	  GPIO_PinAFConfig(GPIOB, GPIO_PinSource6, GPIO_AF_DCMI );
-	  GPIO_PinAFConfig(GPIOB, GPIO_PinSource7, GPIO_AF_DCMI );
-
-	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource6, GPIO_AF_DCMI );
-	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource7, GPIO_AF_DCMI );
-	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource8, GPIO_AF_DCMI );
-	  GPIO_PinAFConfig(GPIOC, GPIO_PinSource9, GPIO_AF_DCMI );
-
-	  GPIO_PinAFConfig(GPIOE, GPIO_PinSource4, GPIO_AF_DCMI );
-	  GPIO_PinAFConfig(GPIOE, GPIO_PinSource5, GPIO_AF_DCMI );
-	  GPIO_PinAFConfig(GPIOE, GPIO_PinSource6, GPIO_AF_DCMI );
-
 		DCMI_DeInit();
 		DCMI_InitStructure.DCMI_CaptureMode = DCMI_CaptureMode_Continuous;
 		DCMI_InitStructure.DCMI_CaptureRate = DCMI_CaptureRate_All_Frame;
 		DCMI_InitStructure.DCMI_ExtendedDataMode = DCMI_ExtendedDataMode_8b;
 		DCMI_InitStructure.DCMI_PCKPolarity = DCMI_PCKPolarity_Rising;
-		DCMI_InitStructure.DCMI_HSPolarity = DCMI_HSPolarity_High;
-		DCMI_InitStructure.DCMI_VSPolarity = DCMI_VSPolarity_High;
+		DCMI_InitStructure.DCMI_HSPolarity = DCMI_HSPolarity_Low;
+		DCMI_InitStructure.DCMI_VSPolarity = DCMI_VSPolarity_Low;
 		DCMI_InitStructure.DCMI_SynchroMode = DCMI_SynchroMode_Hardware;
 		DCMI_Init(&DCMI_InitStructure);
 		DCMI_CaptureCmd(ENABLE);
 		DCMI_JPEGCmd (ENABLE);
-
+		DCMI_Cmd(ENABLE);
 
 		///--------------]
-	    // прерывание DCMI
+	    // РїСЂРµСЂС‹РІР°РЅРёРµ DCMI
 //	    DCMI_ITConfig(DCMI_IT_VSYNC, ENABLE);
 //	    DCMI_ITConfig(DCMI_IT_LINE, ENABLE);
 //	    DCMI_ITConfig(DCMI_IT_FRAME, ENABLE);
@@ -262,38 +259,39 @@ void ADC_DCMI_Core_Init(void)
 //	    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
 //	    NVIC_Init(&NVIC_InitStructure);
 		///--------------]
-	    DCMI_Cmd(ENABLE);
+
 
 
 	  //--------------DMA RX---------------------
 
-//	    DMA_InitStructure.DMA_BufferSize = RX_BUFF_SIZE/4;
-//	    DMA_InitStructure.DMA_Channel = DMA_Channel_1;
-//	    DMA_InitStructure.DMA_Memory0BaseAddr =(uint32_t)DCMIAdcRxBuff;
-//	    DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t) (&DCMI->DR);
-//	    DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralToMemory;
-//	    DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
-//	    DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
-//	    DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Word;
-//	    DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_Word;
-//	    DMA_InitStructure.DMA_Mode =  DMA_Mode_Circular;
-//	    DMA_InitStructure.DMA_Priority = DMA_Priority_VeryHigh;
-//	    DMA_InitStructure.DMA_FIFOMode = DMA_FIFOMode_Disable;
-//	    DMA_InitStructure.DMA_FIFOThreshold = DMA_FIFOThreshold_Full;
-//	    DMA_InitStructure.DMA_MemoryBurst = DMA_MemoryBurst_Single;
-//	    DMA_InitStructure.DMA_PeripheralBurst = DMA_PeripheralBurst_Single;
-//	    DMA_Init(DMA2_Stream1, &DMA_InitStructure);
-//
-//	    /* Inialize NVIC for the DMA interrupt */
-//	    NVIC_InitStructure.NVIC_IRQChannel = DMA2_Stream1_IRQn;
-//	    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 8;
-//	    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-//	    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-//	    NVIC_Init(&NVIC_InitStructure);
-//
-//	    DMA_ITConfig(DMA2_Stream1, DMA_IT_TC | DMA_IT_HT, ENABLE);
+	    DMA_InitStructure.DMA_BufferSize =RX_BUFF_SIZE/4;
+	    DMA_InitStructure.DMA_Channel = DMA_Channel_1;
+	    DMA_InitStructure.DMA_Memory0BaseAddr =(uint32_t)DCMIAdcRxBuff;
+	    DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t) (&DCMI->DR);
+	    DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralToMemory;
+	    DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
+	    DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
+	    DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Word;
+	    DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_Byte;
+	    DMA_InitStructure.DMA_Mode =  DMA_Mode_Circular;
+	    DMA_InitStructure.DMA_Priority = DMA_Priority_VeryHigh;
+	    DMA_InitStructure.DMA_FIFOMode = DMA_FIFOMode_Disable;
+	    DMA_InitStructure.DMA_FIFOThreshold = DMA_FIFOThreshold_Full;
+	    DMA_InitStructure.DMA_MemoryBurst = DMA_MemoryBurst_Single;
+	    DMA_InitStructure.DMA_PeripheralBurst = DMA_PeripheralBurst_Single;
+	    DMA_Init(DMA2_Stream1, &DMA_InitStructure);
 
-	    //DMA_Cmd(DMA2_Stream1, ENABLE);
+	    /* Inialize NVIC for the DMA interrupt */
+	    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
+	    NVIC_InitStructure.NVIC_IRQChannel = DMA2_Stream1_IRQn;
+	    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 5;
+	    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+	    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	    NVIC_Init(&NVIC_InitStructure);
+
+	    DMA_ITConfig(DMA2_Stream1, DMA_IT_TC | DMA_IT_HT, ENABLE);
+
+	    DMA_Cmd(DMA2_Stream1, ENABLE);
 }
 
 void DMA2_Stream1_IRQHandler(void)
@@ -306,100 +304,55 @@ void DMA2_Stream1_IRQHandler(void)
 	{
 		DMA_ClearITPendingBit ( DMA2_Stream1, DMA_IT_HTIF1);
 		ADC_buf_pnt=&DCMIAdcRxBuff[0];
-	//	xSemaphoreGiveFromISR( xUDP_Send_Semaphore, &xHigherPriorityTaskWoken);
-		//GPIO_ToggleBits(GPIOE,GPIO_Pin_5);
+		xSemaphoreGiveFromISR( xUDP_Send_Semaphore, &xHigherPriorityTaskWoken);
+		GPIO_ToggleBits(GPIOE,GPIO_Pin_5);
 	}
 
-	if (DMA_GetITStatus(DMA2_Stream1,DMA_IT_TCIF1))
+	else if (DMA_GetITStatus(DMA2_Stream1,DMA_IT_TCIF1))
 	{
 		DMA_ClearITPendingBit ( DMA2_Stream1, DMA_IT_TCIF1);
 		ADC_buf_pnt=&DCMIAdcRxBuff[ADC_BUF_LEN>>1];
-	//	xSemaphoreGiveFromISR( xUDP_Send_Semaphore, &xHigherPriorityTaskWoken);
+		xSemaphoreGiveFromISR( xUDP_Send_Semaphore, &xHigherPriorityTaskWoken);
 
 	}
+
+	  if( xHigherPriorityTaskWoken != pdFALSE )
+	  {
+		portEND_SWITCHING_ISR( xHigherPriorityTaskWoken );
+	  }
 }
 
-void DCMI_IRQHandler(void)
-{
-    if(DCMI_GetFlagStatus(DCMI_FLAG_VSYNCRI) == SET)
-    {
-    	DCMI_ClearFlag(DCMI_FLAG_VSYNCRI);
-    }
-
-    if(DCMI_GetFlagStatus(DCMI_FLAG_LINERI) == SET)
-    {
-    	DCMI_ClearFlag(DCMI_FLAG_LINERI);
-    	GPIO_ToggleBits(GPIOE,GPIO_Pin_5);
-    }
-
-    if(DCMI_GetFlagStatus(DCMI_FLAG_FRAMERI) == SET)
-    {
-    	DCMI_ClearFlag(DCMI_FLAG_FRAMERI);
-    	//GPIO_ToggleBits(GPIOE,GPIO_Pin_5);
-    }
-
-//    if(DCMI_GetFlagStatus(DCMI_FLAG_ERRRI) == SET)
+//void DCMI_IRQHandler(void)
+//{
+//    if(DCMI_GetFlagStatus(DCMI_FLAG_VSYNCRI) == SET)
 //    {
-//        DCMI_ClearFlag(DCMI_FLAG_ERRRI);
+//    	DCMI_ClearFlag(DCMI_FLAG_VSYNCRI);
 //    }
+//
+//    if(DCMI_GetFlagStatus(DCMI_FLAG_LINERI) == SET)
+//    {
+//    	DCMI_ClearFlag(DCMI_FLAG_LINERI);
+// //   	GPIO_ToggleBits(GPIOE,GPIO_Pin_5);
+//    }
+//
+//    if(DCMI_GetFlagStatus(DCMI_FLAG_FRAMERI) == SET)
+//    {
+//    	DCMI_ClearFlag(DCMI_FLAG_FRAMERI);
+//    	//GPIO_ToggleBits(GPIOE,GPIO_Pin_5);
+//    }
+//
+////    if(DCMI_GetFlagStatus(DCMI_FLAG_ERRRI) == SET)
+////    {
+////        DCMI_ClearFlag(DCMI_FLAG_ERRRI);
+////    }
+//
+//    if(DCMI_GetFlagStatus(DCMI_FLAG_OVFRI) == SET)
+//    {
+//        DCMI_ClearFlag(DCMI_FLAG_OVFRI);
+//        //GPIO_ToggleBits(GPIOE,GPIO_Pin_5);
+//    }
+//}
 
-    if(DCMI_GetFlagStatus(DCMI_FLAG_OVFRI) == SET)
-    {
-        DCMI_ClearFlag(DCMI_FLAG_OVFRI);
-        //GPIO_ToggleBits(GPIOE,GPIO_Pin_5);
-    }
-}
 
 
-void DCMI_TestTask( void *pvParameters )
-{
-	GPIO_InitTypeDef 			GPIO_InitStructure;
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA|RCC_AHB1Periph_GPIOB, ENABLE);
-
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
-	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3 | GPIO_Pin_8;
-	GPIO_Init(GPIOA, &GPIO_InitStructure);
-
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4;
-	GPIO_Init(GPIOB, &GPIO_InitStructure);
-
-	GPIO_ResetBits(GPIOA,GPIO_Pin_3);
-	GPIO_ResetBits(GPIOA,GPIO_Pin_8);
-	GPIO_ResetBits(GPIOB,GPIO_Pin_4);
-
-	uint16_t cycle_count=0;
-	uint16_t transaction_count=0;
-
-	while(1)
-	{
-		GPIO_SetBits(GPIOA,GPIO_Pin_3);
-		vTaskDelay(10);
-		for(transaction_count=0;transaction_count<10;transaction_count++)
-		{
-			vTaskDelay(5);
-			GPIO_SetBits(GPIOB,GPIO_Pin_4);
-			vTaskDelay(5);
-			for(cycle_count=0;cycle_count<24;cycle_count++)
-			{
-
-				GPIO_SetBits(GPIOA,GPIO_Pin_8);
-				vTaskDelay(1);
-				GPIO_ResetBits(GPIOA,GPIO_Pin_8);
-				vTaskDelay(1);
-//				GPIO_ToggleBits(GPIOB,GPIO_Pin_4);
-//				GPIO_ToggleBits(GPIOA,GPIO_Pin_3);
-
-			}
-			vTaskDelay(5);
-			GPIO_ResetBits(GPIOB,GPIO_Pin_4);
-			vTaskDelay(5);
-		}
-		GPIO_ResetBits(GPIOA,GPIO_Pin_3);
-		vTaskDelay(10);
-	}
-}
 
