@@ -32,7 +32,7 @@ extern uint16_t *ADC_buf_pnt;
 
 uint16_t adc_buf_offset=0;
 
-SemaphoreHandle_t xUDP_Send_Semaphore = NULL;
+extern SemaphoreHandle_t xAdcBuf_Send_Semaphore;
 
 void UDP_Send_Task( void *pvParameters );
 
@@ -55,7 +55,7 @@ void udp_client_init(void)
   pb->len = pb->tot_len = sizeof(UDPPacket);
   pb->payload = (uint8_t*)&UDPPacket;
 
-  vSemaphoreCreateBinary( xUDP_Send_Semaphore );
+
   xTaskCreate( UDP_Send_Task, "UDP Task", 512, NULL, 2, NULL );
 }
 
@@ -88,7 +88,7 @@ void UDP_Send_Task( void *pvParameters )
 {
 	while(1)
 	{
-		xSemaphoreTake( xUDP_Send_Semaphore, portMAX_DELAY );
+		xSemaphoreTake( xAdcBuf_Send_Semaphore, portMAX_DELAY );
 		udp_client_send_buf();
 	}
 }

@@ -18,6 +18,7 @@
 #include <stdio.h>
 #include "mbinit.h"
 #include "udp_send.h"
+#include "tcp_send.h"
 #include "adc_dcmi.h"
 
 struct netif xnetif;
@@ -58,9 +59,10 @@ int main()
     /* Initilaize the LwIP stack */
     LwIP_Init();
     MB_TCP_Init();
-    udp_client_init();
-    ADC_Ext_Init();
 
+    ADC_Ext_Init();
+   //udp_client_init();
+    tcp_client_init();
 
     //xTaskCreate(http_server_netconn_thread, "HTTP", 512, NULL, 1, ( TaskHandle_t * ) NULL);
 
