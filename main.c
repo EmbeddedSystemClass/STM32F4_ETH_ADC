@@ -50,10 +50,10 @@ int main()
 {
 
 	  SystemInit();
-	  NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
+	//  NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
 
     /* configure Ethernet (GPIOs, clocks, MAC, DMA) */ 
-   ETH_BSP_Config();
+    ETH_BSP_Config();
 
     /* Initilaize the LwIP stack */
     LwIP_Init();
