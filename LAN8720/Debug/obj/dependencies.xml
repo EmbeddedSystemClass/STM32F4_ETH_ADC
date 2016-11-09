@@ -534,7 +534,7 @@
          <include file="..\..\..\lwip\src\include\lwip\netif.h"/>
          <include file="..\..\..\lwip\src\include\lwip\pbuf.h"/>
       </source>
-      <source file="..\..\..\main.c" lastModified="158439f4e79">
+      <source file="..\..\..\main.c" lastModified="15848244ca5">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
          <include file="..\..\..\FreeRTOS\include\FreeRTOS.h"/>
          <include file="..\..\..\FreeRTOS\include\task.h"/>
@@ -765,18 +765,6 @@
       </source>
       <source file="..\..\..\lwip\port\include\arch\perf.h" lastModified="14b824baae0">
       </source>
-      <source file="..\..\..\source\udp_send.c" lastModified="15843622f70">
-         <include file="..\..\..\lwip\src\include\lwip\debug.h"/>
-         <include file="..\..\..\lwip\src\include\lwip\stats.h"/>
-         <include file="..\..\..\lwip\src\include\lwip\udp.h"/>
-         <include file="..\..\..\main.h"/>
-         <include file="..\..\..\lwip\src\include\lwip\memp.h"/>
-         <include file="..\..\..\source\adc.h"/>
-         <include file="..\..\..\source\adc_dcmi.h"/>
-         <include file="..\..\..\FreeRTOS\include\FreeRTOS.h"/>
-         <include file="..\..\..\FreeRTOS\include\task.h"/>
-         <include file="..\..\..\FreeRTOS\include\semphr.h"/>
-      </source>
       <source file="..\..\..\STM32F4x7_ETH_Driver\inc\stm32f4x7_eth.h" lastModified="14b824baae0">
          <include file="..\..\..\stm32f4x7_eth_conf.h"/>
       </source>
@@ -830,7 +818,7 @@
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_syscfg.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
       </source>
-      <source file="..\..\..\source\adc_dcmi.h" lastModified="157f62cc064">
+      <source file="..\..\..\source\adc_dcmi.h" lastModified="158490d4aa4">
       </source>
       <source file="..\..\..\lwip\src\netif\ppp\magic.h" lastModified="14b824baae0">
       </source>
@@ -859,19 +847,6 @@
          <include file="..\..\..\lwip\src\include\lwip\opt.h"/>
          <include file="..\..\..\lwip\src\include\lwip\pbuf.h"/>
          <include file="..\..\..\lwip\src\include\ipv4\lwip\ip_addr.h"/>
-      </source>
-      <source file="..\..\..\source\adc_dcmi.c" lastModified="15843a6a9b6">
-         <include file="..\..\..\main.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_spi.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_dma.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_dcmi.h"/>
-         <include file="..\..\..\cmsis_lib\include\misc.h"/>
-         <include file="..\..\..\FreeRTOS\include\FreeRTOS.h"/>
-         <include file="..\..\..\FreeRTOS\include\task.h"/>
-         <include file="..\..\..\FreeRTOS\include\semphr.h"/>
       </source>
       <source file="..\..\..\lwip\port\include\arch\cc.h" lastModified="14b824baae0">
          <include file="..\..\..\lwip\port\include\arch\cpu.h"/>

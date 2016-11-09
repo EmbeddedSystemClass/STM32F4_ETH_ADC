@@ -20,6 +20,7 @@ __IO uint8_t DCMIAdcRxBuff[RX_BUFF_SIZE];
 
 uint8_t *ADC_buf_pnt;
 uint16_t ADC_last_data[ADC_CHN_NUM];
+uint64_t timestamp=0;
 
 SemaphoreHandle_t xAdcBuf_Send_Semaphore=NULL;
 
@@ -27,12 +28,57 @@ SemaphoreHandle_t xAdcBuf_Send_Semaphore=NULL;
 
 void ADC_DCMI_Tim_Init(void);
 void ADC_DCMI_Core_Init(void);
+void Timestamp_Init(void);
 
 void ADC_Ext_Init(void)
 {
 	vSemaphoreCreateBinary( xAdcBuf_Send_Semaphore );
+	Timestamp_Init();
 	ADC_DCMI_Core_Init();
 	ADC_DCMI_Tim_Init();
+}
+
+
+
+void Timestamp_Init(void)
+{
+	  TIM_TimeBaseInitTypeDef		TIM_TimeBaseStructure;
+
+	  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4, ENABLE);
+	  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM5, ENABLE);
+
+
+      TIM_TimeBaseStructure.TIM_Period = 0xFFFF;
+      TIM_TimeBaseStructure.TIM_Prescaler =(SystemCoreClock>>1) / 100000 - 1;//10us
+      TIM_TimeBaseStructure.TIM_ClockDivision = 0;
+      TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+      TIM_TimeBaseInit(TIM4, &TIM_TimeBaseStructure);
+
+      TIM_TimeBaseStructure.TIM_Period = 0xFFFFFFFF;
+      TIM_TimeBaseStructure.TIM_Prescaler = 0;
+      TIM_TimeBaseStructure.TIM_ClockDivision = 0;
+      TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+      TIM_TimeBaseInit(TIM5, &TIM_TimeBaseStructure);
+
+
+	  TIM_SelectInputTrigger(TIM5, TIM_TS_ITR2);
+
+	  TIM_SelectMasterSlaveMode(TIM5, TIM_MasterSlaveMode_Enable);
+	  TIM_SelectSlaveMode(TIM5, TIM_SlaveMode_External1);
+
+	  TIM_SelectOutputTrigger(TIM4, TIM_TRGOSource_Update);
+
+
+	  TIM_SetCounter(TIM4, 0);
+	  TIM_SetCounter(TIM5, 0);
+
+	  TIM_Cmd(TIM4, ENABLE);
+	  TIM_Cmd(TIM5, ENABLE);
+}
+
+uint64_t ADC_GetLastTimestamp(void)
+{
+	return timestamp;
 }
 
 void ADC_DCMI_Tim_Init(void)
@@ -236,6 +282,8 @@ void DMA2_Stream1_IRQHandler(void)
 		xSemaphoreGiveFromISR( xAdcBuf_Send_Semaphore, &xHigherPriorityTaskWoken);
 
 	}
+
+	timestamp=((((uint64_t)(TIM5->CNT))<<16)|TIM4->CNT);
 
 	if( xHigherPriorityTaskWoken != pdFALSE )
 	{
