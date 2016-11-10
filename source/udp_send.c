@@ -90,6 +90,7 @@ void UDP_Send_Task( void *pvParameters )
 	{
 		xSemaphoreTake( xAdcBuf_Send_Semaphore, portMAX_DELAY );
 		udp_client_send_buf();
+		ADC_GetLastVal();
 	}
 }
 

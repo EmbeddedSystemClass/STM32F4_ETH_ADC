@@ -12,6 +12,9 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "semphr.h"
+#include "queue.h"
+
+#include "string.h"
 
 
 #define RX_BUFF_SIZE	ADC_BUF_LEN
@@ -23,8 +26,8 @@ uint16_t ADC_last_data[ADC_CHN_NUM];
 uint64_t timestamp=0;
 
 SemaphoreHandle_t xAdcBuf_Send_Semaphore=NULL;
+QueueHandle_t xADC_MB_Queue;
 
-//void DCMI_TestTask( void *pvParameters );
 
 void ADC_DCMI_Tim_Init(void);
 void ADC_DCMI_Core_Init(void);
@@ -33,6 +36,7 @@ void Timestamp_Init(void);
 void ADC_Ext_Init(void)
 {
 	vSemaphoreCreateBinary( xAdcBuf_Send_Semaphore );
+	xADC_MB_Queue = xQueueCreate( 1, sizeof(uint16_t)*ADC_CHN_NUM);
 	Timestamp_Init();
 	ADC_DCMI_Core_Init();
 	ADC_DCMI_Tim_Init();
@@ -79,6 +83,26 @@ void Timestamp_Init(void)
 uint64_t ADC_GetLastTimestamp(void)
 {
 	return timestamp;
+}
+
+void ADC_GetLastVal(void)
+{
+	uint8_t temp[16];
+	uint16_t result[8]={0,0,0,0,0,0,0,0};
+
+	uint8_t bit_count=0, channel_count=0;
+
+	memcpy(temp,&ADC_buf_pnt[(RX_BUFF_SIZE>>1)-16],16);
+
+	for(bit_count=0;bit_count<16;bit_count++)
+	{
+		for(channel_count=0;channel_count<ADC_CHN_NUM;channel_count++)
+		{
+			result[channel_count]|=temp[]
+		}
+	}
+
+	xQueueSend( xADC_MB_Queue, ( void * ) &result, ( TickType_t ) 0 );
 }
 
 void ADC_DCMI_Tim_Init(void)

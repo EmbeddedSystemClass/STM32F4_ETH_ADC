@@ -12,6 +12,7 @@
 
 extern uint32_t LocalTime;
 extern uint16_t ADC_last_data[ADC_CHN_NUM];
+extern QueueHandle_t xADC_MB_Queue;
 
 /* ----------------------- Static variables ---------------------------------*/
 static USHORT   usRegInputStart = REG_INPUT_START;
@@ -30,10 +31,13 @@ eMBRegInputCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs )
 //    usRegInputBuf[1] = (uint16_t)(LocalTime&0x0000FFFF);
 //    usRegInputBuf[2] = (uint16_t)(LocalTime>>16);
 
-    for(i=0;i<ADC_CHN_NUM;i++)
-    {
-    	usRegInputBuf[i] = ADC_last_data[i];
-    }
+//    for(i=0;i<ADC_CHN_NUM;i++)
+//    {
+//    	usRegInputBuf[i] = ADC_last_data[i];
+//    }
+
+    xQueueReceive( xADC_MB_Queue, &( usRegInputBuf ), ( TickType_t ) 0 ) ;
+
 
     if( ( usAddress >= REG_INPUT_START )
         && ( usAddress + usNRegs <= REG_INPUT_START + REG_INPUT_NREGS ) )
