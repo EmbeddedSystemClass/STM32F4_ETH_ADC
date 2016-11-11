@@ -87,18 +87,19 @@ uint64_t ADC_GetLastTimestamp(void)
 
 void ADC_GetLastVal(void)
 {
-	uint8_t temp[16];
+	uint8_t temp[16]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 	uint16_t result[8]={0,0,0,0,0,0,0,0};
 
 	uint8_t bit_count=0, channel_count=0;
 
-	memcpy(temp,&ADC_buf_pnt[(RX_BUFF_SIZE>>1)-16],16);
+	memcpy(temp,&ADC_buf_pnt[((RX_BUFF_SIZE>>1)-1)-16],16);
 
 	for(bit_count=0;bit_count<16;bit_count++)
 	{
 		for(channel_count=0;channel_count<ADC_CHN_NUM;channel_count++)
 		{
-			result[channel_count]|=temp[]
+			result[channel_count]|=((temp[bit_count]&0x1)<<bit_count);
+			temp[bit_count]=temp[bit_count]>>1;
 		}
 	}
 
