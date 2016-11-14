@@ -36,6 +36,9 @@
       <target file="stm32f4xx_gpio.o" lastModified="157e6b14dfe">
          <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="1537a52bce0"/>
       </target>
+      <target file="stm32f4xx_flash.o" lastModified="158621d293d">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_flash.c" lastModified="158621ce687"/>
+      </target>
       <target file="mbfuncinput.o" lastModified="15843b3e5a7">
          <source file="..\..\..\Modbus\functions\mbfuncinput.c" lastModified="1537a52bce0"/>
       </target>
@@ -155,6 +158,9 @@
       </target>
       <target file="http_server.o" lastModified="15843b40573">
          <source file="..\..\..\http_server.c" lastModified="14b824baae0"/>
+      </target>
+      <target file="eeprom.o" lastModified="158621e15b1">
+         <source file="..\..\..\source\eeprom.c" lastModified="132ed756b80"/>
       </target>
       <target file="stm32f4xx_dac.o" lastModified="157e6b11f0f">
          <source file="..\..\..\cmsis_lib\source\stm32f4xx_dac.c" lastModified="1537a52bce0"/>

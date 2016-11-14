@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="4.7.2 -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -Wall -g -nostartfiles -Map=LAN8720.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\LAN8720 -TC:\CooCox\CoIDE\configuration\ProgramData\LAN8720/arm-gcc-link.ld -g">
-      <target file="LAN8720.elf" lastModified="15852b29c97">
+      <target file="LAN8720.elf" lastModified="158621e213a">
          <source file="..\obj\stm32f4xx_syscfg.o" lastModified="157e6b0fe58"/>
          <source file="..\obj\mem.o" lastModified="15843b3be97"/>
          <source file="..\obj\stm32f4xx_sdio.o" lastModified="157e6b102ec"/>
@@ -66,6 +66,7 @@
          <source file="..\obj\api_msg.o" lastModified="15843b3f9db"/>
          <source file="..\obj\chap.o" lastModified="15843b3fac5"/>
          <source file="..\obj\stm32f4xx_gpio.o" lastModified="157e6b14dfe"/>
+         <source file="..\obj\stm32f4xx_flash.o" lastModified="158621d293d"/>
          <source file="..\obj\md5.o" lastModified="15843b3fbbf"/>
          <source file="..\obj\sys_arch.o" lastModified="15843b38db3"/>
          <source file="..\obj\list.o" lastModified="15843ac7c50"/>
@@ -106,6 +107,7 @@
          <source file="..\obj\stm32f4xx_tim.o" lastModified="157e6b185b8"/>
          <source file="..\obj\tcp_out.o" lastModified="15843b40861"/>
          <source file="..\obj\raw.o" lastModified="15843b4097b"/>
+         <source file="..\obj\eeprom.o" lastModified="158621e15b1"/>
       </target>
    </processor>
 </history>

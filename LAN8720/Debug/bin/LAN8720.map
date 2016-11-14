@@ -1345,6 +1345,80 @@ Discarded input sections
                 0x00000000       0x30 ..\obj\stm32f4xx_gpio.o
  .text.GPIO_Write
                 0x00000000       0x1c ..\obj\stm32f4xx_gpio.o
+ .text          0x00000000        0x0 ..\obj\stm32f4xx_flash.o
+ .data          0x00000000        0x0 ..\obj\stm32f4xx_flash.o
+ .bss           0x00000000        0x0 ..\obj\stm32f4xx_flash.o
+ .text.FLASH_SetLatency
+                0x00000000       0x20 ..\obj\stm32f4xx_flash.o
+ .text.FLASH_PrefetchBufferCmd
+                0x00000000       0x38 ..\obj\stm32f4xx_flash.o
+ .text.FLASH_InstructionCacheCmd
+                0x00000000       0x38 ..\obj\stm32f4xx_flash.o
+ .text.FLASH_DataCacheCmd
+                0x00000000       0x38 ..\obj\stm32f4xx_flash.o
+ .text.FLASH_InstructionCacheReset
+                0x00000000       0x1c ..\obj\stm32f4xx_flash.o
+ .text.FLASH_DataCacheReset
+                0x00000000       0x1c ..\obj\stm32f4xx_flash.o
+ .text.FLASH_Unlock
+                0x00000000       0x2c ..\obj\stm32f4xx_flash.o
+ .text.FLASH_Lock
+                0x00000000       0x1c ..\obj\stm32f4xx_flash.o
+ .text.FLASH_EraseSector
+                0x00000000       0xc0 ..\obj\stm32f4xx_flash.o
+ .text.FLASH_EraseAllSectors
+                0x00000000       0xa0 ..\obj\stm32f4xx_flash.o
+ .text.FLASH_ProgramDoubleWord
+                0x00000000       0x70 ..\obj\stm32f4xx_flash.o
+ .text.FLASH_ProgramWord
+                0x00000000       0x68 ..\obj\stm32f4xx_flash.o
+ .text.FLASH_ProgramHalfWord
+                0x00000000       0x6c ..\obj\stm32f4xx_flash.o
+ .text.FLASH_ProgramByte
+                0x00000000       0x68 ..\obj\stm32f4xx_flash.o
+ .text.FLASH_OB_Unlock
+                0x00000000       0x30 ..\obj\stm32f4xx_flash.o
+ .text.FLASH_OB_Lock
+                0x00000000       0x1c ..\obj\stm32f4xx_flash.o
+ .text.FLASH_OB_WRPConfig
+                0x00000000       0x58 ..\obj\stm32f4xx_flash.o
+ .text.FLASH_OB_RDPConfig
+                0x00000000       0x2c ..\obj\stm32f4xx_flash.o
+ .text.FLASH_OB_UserConfig
+                0x00000000       0x58 ..\obj\stm32f4xx_flash.o
+ .text.FLASH_OB_BORConfig
+                0x00000000       0x38 ..\obj\stm32f4xx_flash.o
+ .text.FLASH_OB_Launch
+                0x00000000       0x30 ..\obj\stm32f4xx_flash.o
+ .text.FLASH_OB_GetUser
+                0x00000000       0x1c ..\obj\stm32f4xx_flash.o
+ .text.FLASH_OB_GetWRP
+                0x00000000       0x18 ..\obj\stm32f4xx_flash.o
+ .text.FLASH_OB_GetRDP
+                0x00000000       0x30 ..\obj\stm32f4xx_flash.o
+ .text.FLASH_OB_GetBOR
+                0x00000000       0x20 ..\obj\stm32f4xx_flash.o
+ .text.FLASH_ITConfig
+                0x00000000       0x3c ..\obj\stm32f4xx_flash.o
+ .text.FLASH_GetFlagStatus
+                0x00000000       0x34 ..\obj\stm32f4xx_flash.o
+ .text.FLASH_ClearFlag
+                0x00000000       0x1c ..\obj\stm32f4xx_flash.o
+ .text.FLASH_GetStatus
+                0x00000000       0x68 ..\obj\stm32f4xx_flash.o
+ .text.FLASH_WaitForLastOperation
+                0x00000000       0x30 ..\obj\stm32f4xx_flash.o
+ .debug_info    0x00000000      0x71b ..\obj\stm32f4xx_flash.o
+ .debug_abbrev  0x00000000      0x1ae ..\obj\stm32f4xx_flash.o
+ .debug_aranges
+                0x00000000      0x108 ..\obj\stm32f4xx_flash.o
+ .debug_ranges  0x00000000       0xf8 ..\obj\stm32f4xx_flash.o
+ .debug_line    0x00000000      0x4bf ..\obj\stm32f4xx_flash.o
+ .debug_str     0x00000000      0x5c3 ..\obj\stm32f4xx_flash.o
+ .comment       0x00000000       0x71 ..\obj\stm32f4xx_flash.o
+ .debug_frame   0x00000000      0x44c ..\obj\stm32f4xx_flash.o
+ .ARM.attributes
+                0x00000000       0x37 ..\obj\stm32f4xx_flash.o
  .text          0x00000000        0x0 ..\obj\md5.o
  .data          0x00000000        0x0 ..\obj\md5.o
  .bss           0x00000000        0x0 ..\obj\md5.o
@@ -2086,6 +2160,33 @@ Discarded input sections
  .text.raw_remove
                 0x00000000       0x60 ..\obj\raw.o
  .text.raw_new  0x00000000       0x4c ..\obj\raw.o
+ .text          0x00000000        0x0 ..\obj\eeprom.o
+ .data          0x00000000        0x0 ..\obj\eeprom.o
+ .bss           0x00000000        0x2 ..\obj\eeprom.o
+ .text.EE_Init  0x00000000      0x2a0 ..\obj\eeprom.o
+ .text.EE_ReadVariable
+                0x00000000       0x94 ..\obj\eeprom.o
+ .text.EE_WriteVariable
+                0x00000000       0x44 ..\obj\eeprom.o
+ .text.EE_Format
+                0x00000000       0x50 ..\obj\eeprom.o
+ .text.EE_FindValidPage
+                0x00000000       0x8c ..\obj\eeprom.o
+ .text.EE_VerifyPageFullWriteVariable
+                0x00000000       0xb0 ..\obj\eeprom.o
+ .text.EE_PageTransfer
+                0x00000000      0x138 ..\obj\eeprom.o
+ .debug_info    0x00000000      0x433 ..\obj\eeprom.o
+ .debug_abbrev  0x00000000      0x148 ..\obj\eeprom.o
+ .debug_aranges
+                0x00000000       0x50 ..\obj\eeprom.o
+ .debug_ranges  0x00000000       0x40 ..\obj\eeprom.o
+ .debug_line    0x00000000      0x333 ..\obj\eeprom.o
+ .debug_str     0x00000000      0x3b4 ..\obj\eeprom.o
+ .comment       0x00000000       0x71 ..\obj\eeprom.o
+ .debug_frame   0x00000000      0x114 ..\obj\eeprom.o
+ .ARM.attributes
+                0x00000000       0x37 ..\obj\eeprom.o
  .text          0x00000000        0x0 c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg.a(lib_a-memcmp.o)
  .data          0x00000000        0x0 c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg.a(lib_a-memcmp.o)
  .bss           0x00000000        0x0 c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg.a(lib_a-memcmp.o)
@@ -4020,6 +4121,7 @@ LOAD ..\obj\fsm.o
 LOAD ..\obj\api_msg.o
 LOAD ..\obj\chap.o
 LOAD ..\obj\stm32f4xx_gpio.o
+LOAD ..\obj\stm32f4xx_flash.o
 LOAD ..\obj\md5.o
 LOAD ..\obj\sys_arch.o
 LOAD ..\obj\list.o
@@ -4060,6 +4162,7 @@ LOAD ..\obj\ipcp.o
 LOAD ..\obj\stm32f4xx_tim.o
 LOAD ..\obj\tcp_out.o
 LOAD ..\obj\raw.o
+LOAD ..\obj\eeprom.o
 START GROUP
 LOAD c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp\libgcc.a
 LOAD c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp\libg.a

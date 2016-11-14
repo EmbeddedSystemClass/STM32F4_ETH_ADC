@@ -83,6 +83,7 @@
     <Component id="505" name="EXTI" path="" type="2"/>
     <Component id="509" name="SPI" path="" type="2"/>
     <Component id="511" name="DMA" path="" type="2"/>
+    <Component id="512" name="FLASH" path="" type="2"/>
     <Component id="513" name="TIM" path="" type="2"/>
     <Component id="514" name="ADC" path="" type="2"/>
     <Component id="515" name="DAC" path="" type="2"/>
@@ -242,6 +243,7 @@
     <File name="lwip/src/include/lwip/tcp.h" path="lwip/src/include/lwip/tcp.h" type="1"/>
     <File name="FreeRTOS/portable" path="" type="2"/>
     <File name="lwip/src/include/posix/sys/socket.h" path="lwip/src/include/posix/sys/socket.h" type="1"/>
+    <File name="cmsis_lib/include/stm32f4xx_flash.h" path="cmsis_lib/include/stm32f4xx_flash.h" type="1"/>
     <File name="lwip/src/netif/ppp/fsm.h" path="lwip/src/netif/ppp/fsm.h" type="1"/>
     <File name="lwip/src/core/sys.c" path="lwip/src/core/sys.c" type="1"/>
     <File name="lwip/src/include/ipv4/lwip/icmp.h" path="lwip/src/include/ipv4/lwip/icmp.h" type="1"/>
@@ -272,6 +274,7 @@
     <File name="lwip/src/core/udp.c" path="lwip/src/core/udp.c" type="1"/>
     <File name="lwip/src/include/lwip/timers.h" path="lwip/src/include/lwip/timers.h" type="1"/>
     <File name="FreeRTOS/portable/GCC/ARM_CM4F" path="" type="2"/>
+    <File name="source/eeprom.h" path="source/eeprom.h" type="1"/>
     <File name="lwip/port/include" path="" type="2"/>
     <File name="cmsis_lib/source/stm32f4xx_dac.c" path="cmsis_lib/source/stm32f4xx_dac.c" type="1"/>
     <File name="lwip/src/netif" path="" type="2"/>
@@ -289,6 +292,7 @@
     <File name="lwip/src/netif/ppp/chpms.c" path="lwip/src/netif/ppp/chpms.c" type="1"/>
     <File name="Modbus/functions/mbfuncholding.c" path="Modbus/functions/mbfuncholding.c" type="1"/>
     <File name="FreeRTOS/include/event_groups.h" path="FreeRTOS/include/event_groups.h" type="1"/>
+    <File name="source/eeprom.c" path="source/eeprom.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_adc.h" path="cmsis_lib/include/stm32f4xx_adc.h" type="1"/>
     <File name="lwip/src" path="" type="2"/>
     <File name="source/adc_dcmi.c" path="source/adc_dcmi.c" type="1"/>
@@ -317,6 +321,7 @@
     <File name="Modbus/tcp/mbtcp.h" path="Modbus/tcp/mbtcp.h" type="1"/>
     <File name="cmsis_boot/startup" path="" type="2"/>
     <File name="FreeRTOS/portable/MemMang/heap_2.c" path="FreeRTOS/portable/MemMang/heap_2.c" type="1"/>
+    <File name="cmsis_lib/source/stm32f4xx_flash.c" path="cmsis_lib/source/stm32f4xx_flash.c" type="1"/>
     <File name="Modbus" path="" type="2"/>
     <File name="cmsis/core_cm4.h" path="cmsis/core_cm4.h" type="1"/>
     <File name="lwip/src/netif/ppp/chpms.h" path="lwip/src/netif/ppp/chpms.h" type="1"/>

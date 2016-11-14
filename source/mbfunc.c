@@ -1,7 +1,7 @@
 #include "mbfunc.h"
 #include "mb.h"
 #include "mbtcp.h"
-//#include "adc.h"
+#include "settings.h"
 #include "main.h"
 
 /* ----------------------- Defines ------------------------------------------*/
@@ -11,8 +11,10 @@
 #define REG_HOLDING_NREGS       10
 
 extern uint32_t LocalTime;
-extern uint16_t ADC_last_data[ADC_CHN_NUM];
+//extern uint16_t ADC_last_data[ADC_CHN_NUM];
 extern QueueHandle_t xADC_MB_Queue;
+
+extern stSettings Settings;
 
 /* ----------------------- Static variables ---------------------------------*/
 static USHORT   usRegInputStart = REG_INPUT_START;
@@ -26,15 +28,6 @@ eMBRegInputCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs )
     eMBErrorCode    eStatus = MB_ENOERR;
     int             iRegIndex;
     uint8_t i=0;
-   // usRegInputBuf[0] = (GPIOD->ODR & 0xF000);
-//    usRegInputBuf[0] = 0;
-//    usRegInputBuf[1] = (uint16_t)(LocalTime&0x0000FFFF);
-//    usRegInputBuf[2] = (uint16_t)(LocalTime>>16);
-
-//    for(i=0;i<ADC_CHN_NUM;i++)
-//    {
-//    	usRegInputBuf[i] = ADC_last_data[i];
-//    }
 
     xQueueReceive( xADC_MB_Queue, &( usRegInputBuf ), ( TickType_t ) 0 ) ;
 
@@ -58,6 +51,18 @@ eMBRegInputCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs )
     return eStatus;
 }
 
+#define SERVER_IP_REG_0		0
+#define SERVER_IP_REG_1		1
+#define SERVER_IP_REG_2		2
+#define SERVER_IP_REG_3		3
+
+#define SERVER_PORT_REG_0	4
+
+#define CLIENT_IP_REG_0		5
+#define CLIENT_IP_REG_1		6
+#define CLIENT_IP_REG_2		7
+#define CLIENT_IP_REG_3		8
+
 eMBErrorCode
 eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs, eMBRegisterMode eMode )
 {
@@ -72,6 +77,20 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs, eMBRegi
         {
             /* Pass current register values to the protocol stack. */
         case MB_REG_READ:
+        {
+        	usRegHoldingBuf[SERVER_IP_REG_0]=Settings.IPAdress_Server.ip_addr_0;
+        	usRegHoldingBuf[SERVER_IP_REG_1]=Settings.IPAdress_Server.ip_addr_1;
+        	usRegHoldingBuf[SERVER_IP_REG_2]=Settings.IPAdress_Server.ip_addr_2;
+        	usRegHoldingBuf[SERVER_IP_REG_3]=Settings.IPAdress_Server.ip_addr_3;
+
+        	usRegHoldingBuf[SERVER_PORT_REG_0]=Settings.IPAdress_Server.port;
+
+        	usRegHoldingBuf[CLIENT_IP_REG_0]=Settings.IPAdress_Client.ip_addr_0;
+        	usRegHoldingBuf[CLIENT_IP_REG_1]=Settings.IPAdress_Client.ip_addr_1;
+        	usRegHoldingBuf[CLIENT_IP_REG_2]=Settings.IPAdress_Client.ip_addr_2;
+        	usRegHoldingBuf[CLIENT_IP_REG_3]=Settings.IPAdress_Client.ip_addr_3;
+
+
             while( usNRegs > 0 )
             {
                 *pucRegBuffer++ = ( UCHAR ) ( usRegHoldingBuf[iRegIndex] >> 8 );
@@ -80,10 +99,11 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs, eMBRegi
                 usNRegs--;
             }
             break;
-
+        }
             /* Update current register values with new values from the
              * protocol stack. */
         case MB_REG_WRITE:
+        {
             while( usNRegs > 0 )
             {
                 usRegHoldingBuf[iRegIndex] = *pucRegBuffer++ << 8;
@@ -91,7 +111,22 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs, eMBRegi
                 iRegIndex++;
                 usNRegs--;
             }
+
+        	Settings.IPAdress_Server.ip_addr_0=usRegHoldingBuf[SERVER_IP_REG_0];
+        	Settings.IPAdress_Server.ip_addr_1=usRegHoldingBuf[SERVER_IP_REG_1];
+        	Settings.IPAdress_Server.ip_addr_2=usRegHoldingBuf[SERVER_IP_REG_2];
+        	Settings.IPAdress_Server.ip_addr_3=usRegHoldingBuf[SERVER_IP_REG_3];
+
+        	Settings.IPAdress_Server.port=usRegHoldingBuf[SERVER_PORT_REG_0];
+
+        	Settings.IPAdress_Client.ip_addr_0=usRegHoldingBuf[CLIENT_IP_REG_0];
+        	Settings.IPAdress_Client.ip_addr_1=usRegHoldingBuf[CLIENT_IP_REG_1];
+        	Settings.IPAdress_Client.ip_addr_2=usRegHoldingBuf[CLIENT_IP_REG_2];
+        	Settings.IPAdress_Client.ip_addr_3=usRegHoldingBuf[CLIENT_IP_REG_3];
+
+        	Settings_Save(&Settings);
         }
+      }
     }
     else
     {
