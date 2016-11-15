@@ -3,9 +3,9 @@
 #include "stm32f4xx_gpio.h"
 #include "stm32f4xx_rcc.h"
 
-stSettings Settings;
+stSettings Stngs;
 
-stSettings Settings_Default={192,168,109,150,1000,192,168,109,140};
+stSettings Stngs_Default={192,168,109,150,1000,192,168,109,140};
 
 void Settings_Init(stSettings *Settings)
 {
@@ -27,7 +27,7 @@ void Settings_Init(stSettings *Settings)
 	}
 	else
 	{
-		Settings=Settings_Default;
+		*Settings=Stngs_Default;
 	}
 }
 
@@ -36,7 +36,7 @@ void Settings_Load(stSettings *Settings)
 
 }
 
-void Settings_Save(stSettings *Settings)
+void Settings_Save(stSettings Settings)
 {
 
 }

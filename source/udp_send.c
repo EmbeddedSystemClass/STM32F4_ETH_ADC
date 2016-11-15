@@ -35,6 +35,7 @@ uint16_t adc_buf_offset=0;
 extern SemaphoreHandle_t xAdcBuf_Send_Semaphore;
 
 void UDP_Send_Task( void *pvParameters );
+/*inline*/ void delay(uint32_t time);
 
 #pragma pack(push,1)
 typedef struct
@@ -59,7 +60,7 @@ void udp_client_init(void)
   xTaskCreate( UDP_Send_Task, "UDP Task", 512, NULL, 2, NULL );
 }
 
-inline void delay(uint32_t time)
+/*inline*/ void delay(uint32_t time)
 {
 	while (time)
 		time--;
@@ -79,7 +80,7 @@ void udp_client_send_buf(void)
 		err=udp_sendto(client_pcb, pb,&DestIPaddr,SERVER_PORT);
 		adc_buf_offset+=UDP_ADC_PACKET_SIZE;
 		UDPPacket.id++;
-		delay(UDP_PACKET_SEND_DELAY);//???
+		delay(UDP_PACKET_SEND_DELAY);
 	}
   }
 }

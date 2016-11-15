@@ -1,6 +1,8 @@
 #ifndef SETTINGS_H
 #define SETTINGS_H
 
+#include "stm32f4xx.h"
+
 typedef struct
 {
 	uint8_t ip_addr_0;
@@ -20,6 +22,6 @@ typedef struct
 
 void Settings_Init(stSettings *Settings);
 void Settings_Load(stSettings *Settings);
-void Settings_Save(stSettings *Settings);
+void Settings_Save(stSettings  Settings);
 
 #endif

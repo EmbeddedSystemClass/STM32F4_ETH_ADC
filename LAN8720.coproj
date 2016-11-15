@@ -6,7 +6,7 @@
       <Compile>
         <Option name="OptimizationLevel" value="0"/>
         <Option name="UseFPU" value="0"/>
-        <Option name="UserEditCompiler" value=""/>
+        <Option name="UserEditCompiler" value="-std=c99"/>
         <Option name="FPU" value="1"/>
         <Includepaths>
           <Includepath path="."/>
@@ -130,6 +130,7 @@
     <File name="FreeRTOS/include/deprecated_definitions.h" path="FreeRTOS/include/deprecated_definitions.h" type="1"/>
     <File name="lwip/src/netif/ppp/pap.c" path="lwip/src/netif/ppp/pap.c" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_syscfg.c" path="cmsis_lib/source/stm32f4xx_syscfg.c" type="1"/>
+    <File name="source/cfg_info.h" path="source/cfg_info.h" type="1"/>
     <File name="lwip/src/netif/ppp/auth.h" path="lwip/src/netif/ppp/auth.h" type="1"/>
     <File name="lwip/src/core/snmp/asn1_dec.c" path="lwip/src/core/snmp/asn1_dec.c" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_rcc.c" path="cmsis_lib/source/stm32f4xx_rcc.c" type="1"/>
@@ -140,9 +141,9 @@
     <File name="lwip/src/core/snmp/msg_in.c" path="lwip/src/core/snmp/msg_in.c" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_pwr.c" path="cmsis_lib/source/stm32f4xx_pwr.c" type="1"/>
     <File name="FreeRTOS/include/queue.h" path="FreeRTOS/include/queue.h" type="1"/>
+    <File name="lwip/src/netif/ppp/md5.h" path="lwip/src/netif/ppp/md5.h" type="1"/>
     <File name="FreeRTOS/portable/GCC" path="" type="2"/>
     <File name="source" path="" type="2"/>
-    <File name="lwip/src/netif/ppp/md5.h" path="lwip/src/netif/ppp/md5.h" type="1"/>
     <File name="FreeRTOS/include/croutine.h" path="FreeRTOS/include/croutine.h" type="1"/>
     <File name="lwip/src/include/lwip/sys.h" path="lwip/src/include/lwip/sys.h" type="1"/>
     <File name="lwip/src/core/init.c" path="lwip/src/core/init.c" type="1"/>
@@ -181,6 +182,7 @@
     <File name="lwip/src/include/ipv4/lwip/inet.h" path="lwip/src/include/ipv4/lwip/inet.h" type="1"/>
     <File name="lwip/src/include/netif/ppp_oe.h" path="lwip/src/include/netif/ppp_oe.h" type="1"/>
     <File name="lwip/src/include/ipv4/lwip/ip_frag.h" path="lwip/src/include/ipv4/lwip/ip_frag.h" type="1"/>
+    <File name="source/settings.c" path="source/settings.c" type="1"/>
     <File name="lwip/src/core/mem.c" path="lwip/src/core/mem.c" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_adc.c" path="cmsis_lib/source/stm32f4xx_adc.c" type="1"/>
     <File name="lwip/src/include/ipv4/lwip/ip.h" path="lwip/src/include/ipv4/lwip/ip.h" type="1"/>
@@ -196,6 +198,7 @@
     <File name="cmsis_boot/system_stm32f4xx.h" path="cmsis_boot/system_stm32f4xx.h" type="1"/>
     <File name="lwip/src/include/lwip/netbuf.h" path="lwip/src/include/lwip/netbuf.h" type="1"/>
     <File name="lwip/src/api/netifapi.c" path="lwip/src/api/netifapi.c" type="1"/>
+    <File name="source/settings.h" path="source/settings.h" type="1"/>
     <File name="lwip/port/include/arch/cpu.h" path="lwip/port/include/arch/cpu.h" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_dcmi.c" path="cmsis_lib/source/stm32f4xx_dcmi.c" type="1"/>
     <File name="lwip/port/sys_arch.c" path="lwip/port/sys_arch.c" type="1"/>
@@ -217,6 +220,7 @@
     <File name="source/udp_send.c" path="source/udp_send.c" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_exti.c" path="cmsis_lib/source/stm32f4xx_exti.c" type="1"/>
     <File name="lwip/src/core/timers.c" path="lwip/src/core/timers.c" type="1"/>
+    <File name="source/cfg_info.c" path="source/cfg_info.c" type="1"/>
     <File name="lwip/src/api/err.c" path="lwip/src/api/err.c" type="1"/>
     <File name="lwip/src/netif/ppp/magic.c" path="lwip/src/netif/ppp/magic.c" type="1"/>
     <File name="lwip/src/include/lwip/err.h" path="lwip/src/include/lwip/err.h" type="1"/>
@@ -282,10 +286,10 @@
     <File name="cmsis_lib/include/stm32f4xx_rcc.h" path="cmsis_lib/include/stm32f4xx_rcc.h" type="1"/>
     <File name="FreeRTOS/queue.c" path="FreeRTOS/queue.c" type="1"/>
     <File name="FreeRTOS/include/mpu_wrappers.h" path="FreeRTOS/include/mpu_wrappers.h" type="1"/>
-    <File name="lwip/src/netif/ppp/ipcp.h" path="lwip/src/netif/ppp/ipcp.h" type="1"/>
-    <File name="lwip/src/core/snmp" path="" type="2"/>
-    <File name="cmsis_lib/include/stm32f4xx_pwr.h" path="cmsis_lib/include/stm32f4xx_pwr.h" type="1"/>
     <File name="STM32F4x7_ETH_Driver/src/stm32f4x7_eth.c" path="STM32F4x7_ETH_Driver/src/stm32f4x7_eth.c" type="1"/>
+    <File name="cmsis_lib/include/stm32f4xx_pwr.h" path="cmsis_lib/include/stm32f4xx_pwr.h" type="1"/>
+    <File name="lwip/src/core/snmp" path="" type="2"/>
+    <File name="lwip/src/netif/ppp/ipcp.h" path="lwip/src/netif/ppp/ipcp.h" type="1"/>
     <File name="lwip/src/include/netif/etharp.h" path="lwip/src/include/netif/etharp.h" type="1"/>
     <File name="cmsis_boot/startup/startup_stm32f4xx.c" path="cmsis_boot/startup/startup_stm32f4xx.c" type="1"/>
     <File name="cmsis/core_cmInstr.h" path="cmsis/core_cmInstr.h" type="1"/>
