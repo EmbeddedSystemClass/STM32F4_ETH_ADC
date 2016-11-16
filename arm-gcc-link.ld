@@ -1,20 +1,48 @@
 OUTPUT_FORMAT ("elf32-littlearm", "elf32-bigarm", "elf32-littlearm")
 /* Internal Memory Map*/
+
+/*ENTRY(Reset_Handler)*/
+
 MEMORY
 {
-	flash_cfg1 (r)  : ORIGIN = 0x08000000, LENGTH = 0x00004000
-	flash_cfg2 (r)  : ORIGIN = 0x08004000, LENGTH = 0x00004000
-	rom (rx)  : ORIGIN = 0x08008000, LENGTH = 0x000F8000
-	ram (rwx) : ORIGIN = 0x20000000, LENGTH = 0x00020000
-	ram1 (rwx) : ORIGIN = 0x10000000, LENGTH = 0x00010000
+	vector (rx)  : ORIGIN = 0x08000000, LENGTH = 16K
+	flash_1 (r)  : ORIGIN = 0x08004000, LENGTH = 16K
+	flash_2 (r)  : ORIGIN = 0x08008000, LENGTH = 16K
+	rom (rx)     : ORIGIN = 0x0800C000, LENGTH = 976K
+	ram (rwx)    : ORIGIN = 0x20000000, LENGTH = 0x00020000
+	ram1 (rwx)   : ORIGIN = 0x10000000, LENGTH = 0x00010000
 }
 
 _eram = 0x20000000 + 0x00020000;
 SECTIONS
 {
+	/* The startup code goes first into FLASH */
+  	.isr_vector :
+  	{
+    	. = ALIGN(4);
+    	KEEP(*(.isr_vector)) /* Startup code */
+    	. = ALIGN(4);
+  	} > vector
+
+ 	.flash_cfg1 :
+ 	{
+    	. = ALIGN(4);
+    	_flash_cfg1_start = .;
+    	*(.flash_cfg1)
+    	. = ALIGN(4);
+  	} >flash_1
+  	
+  	.flash_cfg2 :
+ 	{
+    	. = ALIGN(4);
+    	_flash_cfg2_start = .;
+    	*(.flash_cfg2)
+    	. = ALIGN(4);
+  	} >flash_2
+
 	.text :
 	{
-		KEEP(*(.isr_vector))
+		. = ALIGN(4);
 		*(.text*)
 		
 		KEEP(*(.init))
@@ -37,6 +65,12 @@ SECTIONS
 		*(.rodata*)
 		
 		KEEP(*(.eh_fram e*))
+
+		. = ALIGN(4);
+        _param_start = .;
+        KEEP(*(.param))
+        KEEP(*(.param.*))
+        _param_stop = .;
 	} > rom 
 	
 	.ARM.extab : 
@@ -132,4 +166,4 @@ SECTIONS
 	
 	/* Check if data + heap + stack exceeds ram  limit */
 	ASSERT(__StackLimit >= __HeapLimit, "region ram  overflowed with stack")
-}
+}

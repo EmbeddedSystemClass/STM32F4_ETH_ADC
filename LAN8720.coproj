@@ -31,11 +31,12 @@
         <Option name="LTO" value="0"/>
         <Option name="IsNewStartupCode" value="1"/>
         <Option name="Library" value="Not use C Library"/>
+        <Option name="DiscardUnusedSections" value="1"/>
         <LinkedLibraries/>
         <MemoryAreas debugInFlashNotRAM="1">
-          <Memory name="IROM1" type="ReadOnly" size="0xf8000" startValue="0x08008000"/>
+          <Memory name="IROM1" type="ReadOnly" size="0x00100000" startValue="0x08000000"/>
           <Memory name="IRAM1" type="ReadWrite" size="0x00020000" startValue="0x20000000"/>
-          <Memory name="IROM2" type="ReadOnly" size="0x8000" startValue="0x08000000"/>
+          <Memory name="IROM2" type="ReadOnly" size="" startValue=""/>
           <Memory name="IRAM2" type="ReadWrite" size="0x00010000" startValue="0x10000000"/>
         </MemoryAreas>
         <LocateLinkFile path="./arm-gcc-link.ld" type="0"/>
