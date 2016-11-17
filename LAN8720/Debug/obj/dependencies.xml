@@ -116,13 +116,6 @@
       </source>
       <source file="..\..\..\source\mbinit.h" lastModified="157e6e397c6">
       </source>
-      <source file="..\..\..\source\mbfunc.c" lastModified="15867316374">
-         <include file="..\..\..\source\mbfunc.h"/>
-         <include file="..\..\..\Modbus\include\mb.h"/>
-         <include file="..\..\..\Modbus\tcp\mbtcp.h"/>
-         <include file="..\..\..\source\settings.h"/>
-         <include file="..\..\..\main.h"/>
-      </source>
       <source file="..\..\..\Modbus\port\port.h" lastModified="157e6f902fd">
          <include file="..\..\..\lwip\src\include\lwip\opt.h"/>
          <include file="..\..\..\lwip\src\include\lwip\sys.h"/>
@@ -311,7 +304,7 @@
       <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="1537a52bce0">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
       </source>
-      <source file="..\..\..\source\cfg_info.h" lastModified="158676b78e7">
+      <source file="..\..\..\source\cfg_info.h" lastModified="158717dd803">
       </source>
       <source file="..\..\..\FreeRTOS\include\timers.h" lastModified="14b824baae0">
          <include file="..\..\..\FreeRTOS\include\task.h"/>
@@ -335,7 +328,7 @@
          <include file="..\..\..\lwip\src\include\ipv4\lwip\autoip.h"/>
          <include file="..\..\..\lwip\src\include\lwip\dhcp.h"/>
       </source>
-      <source file="..\..\..\source\cfg_info.c" lastModified="1586da88501">
+      <source file="..\..\..\source\cfg_info.c" lastModified="1587192e972">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_flash.h"/>
          <include file="..\..\..\source\cfg_info.h"/>
@@ -1274,12 +1267,12 @@
       <source file="..\..\..\cmsis_lib\include\misc.h" lastModified="1537a52bce0">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_syscfg.h" lastModified="1537a52bce0">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
       <source file="..\..\..\cmsis_lib\source\stm32f4xx_tim.c" lastModified="15798fd8ef2">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_syscfg.h" lastModified="1537a52bce0">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
       <source file="..\..\..\lwip\src\include\lwip\sockets.h" lastModified="14b824baec8">
          <include file="..\..\..\lwip\src\include\lwip\opt.h"/>
@@ -1361,12 +1354,12 @@
          <include file="..\..\..\lwip\src\include\lwip\memp_std.h"/>
          <include file="..\..\..\lwip\src\include\lwip\memp_std.h"/>
       </source>
+      <source file="..\..\..\lwip\src\include\lwip\init.h" lastModified="14b824baae0">
+         <include file="..\..\..\lwip\src\include\lwip\opt.h"/>
+      </source>
       <source file="..\..\..\lwip\src\include\lwip\opt.h" lastModified="14b824baae0">
          <include file="..\..\..\lwipopts.h"/>
          <include file="..\..\..\lwip\src\include\lwip\debug.h"/>
-      </source>
-      <source file="..\..\..\lwip\src\include\lwip\init.h" lastModified="14b824baae0">
-         <include file="..\..\..\lwip\src\include\lwip\opt.h"/>
       </source>
    </includePath>
 </dependencies>

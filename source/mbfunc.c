@@ -3,6 +3,7 @@
 #include "mbtcp.h"
 #include "settings.h"
 #include "main.h"
+#include "cfg_info.h"
 
 /* ----------------------- Defines ------------------------------------------*/
 #define REG_INPUT_START         1000
@@ -14,7 +15,7 @@ extern uint32_t LocalTime;
 //extern uint16_t ADC_last_data[ADC_CHN_NUM];
 extern QueueHandle_t xADC_MB_Queue;
 
-extern stSettings Stngs;
+extern sConfigInfo configInfo;
 
 /* ----------------------- Static variables ---------------------------------*/
 static USHORT   usRegInputStart = REG_INPUT_START;
@@ -78,17 +79,17 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs, eMBRegi
             /* Pass current register values to the protocol stack. */
         case MB_REG_READ:
         {
-        	usRegHoldingBuf[SERVER_IP_REG_0]=Stngs.IPAdress_Server.ip_addr_0;
-        	usRegHoldingBuf[SERVER_IP_REG_1]=Stngs.IPAdress_Server.ip_addr_1;
-        	usRegHoldingBuf[SERVER_IP_REG_2]=Stngs.IPAdress_Server.ip_addr_2;
-        	usRegHoldingBuf[SERVER_IP_REG_3]=Stngs.IPAdress_Server.ip_addr_3;
+        	usRegHoldingBuf[SERVER_IP_REG_0]=configInfo.IPAdress_Server.ip_addr_0;
+        	usRegHoldingBuf[SERVER_IP_REG_1]=configInfo.IPAdress_Server.ip_addr_1;
+        	usRegHoldingBuf[SERVER_IP_REG_2]=configInfo.IPAdress_Server.ip_addr_2;
+        	usRegHoldingBuf[SERVER_IP_REG_3]=configInfo.IPAdress_Server.ip_addr_3;
 
-        	usRegHoldingBuf[SERVER_PORT_REG_0]=Stngs.IPAdress_Server.port;
+        	usRegHoldingBuf[SERVER_PORT_REG_0]=configInfo.IPAdress_Server.port;
 
-        	usRegHoldingBuf[CLIENT_IP_REG_0]=Stngs.IPAdress_Client.ip_addr_0;
-        	usRegHoldingBuf[CLIENT_IP_REG_1]=Stngs.IPAdress_Client.ip_addr_1;
-        	usRegHoldingBuf[CLIENT_IP_REG_2]=Stngs.IPAdress_Client.ip_addr_2;
-        	usRegHoldingBuf[CLIENT_IP_REG_3]=Stngs.IPAdress_Client.ip_addr_3;
+        	usRegHoldingBuf[CLIENT_IP_REG_0]=configInfo.IPAdress_Client.ip_addr_0;
+        	usRegHoldingBuf[CLIENT_IP_REG_1]=configInfo.IPAdress_Client.ip_addr_1;
+        	usRegHoldingBuf[CLIENT_IP_REG_2]=configInfo.IPAdress_Client.ip_addr_2;
+        	usRegHoldingBuf[CLIENT_IP_REG_3]=configInfo.IPAdress_Client.ip_addr_3;
 
 
             while( usNRegs > 0 )
@@ -112,19 +113,19 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs, eMBRegi
                 usNRegs--;
             }
 
-            Stngs.IPAdress_Server.ip_addr_0=usRegHoldingBuf[SERVER_IP_REG_0];
-            Stngs.IPAdress_Server.ip_addr_1=usRegHoldingBuf[SERVER_IP_REG_1];
-            Stngs.IPAdress_Server.ip_addr_2=usRegHoldingBuf[SERVER_IP_REG_2];
-            Stngs.IPAdress_Server.ip_addr_3=usRegHoldingBuf[SERVER_IP_REG_3];
+            configInfo.IPAdress_Server.ip_addr_0=usRegHoldingBuf[SERVER_IP_REG_0];
+            configInfo.IPAdress_Server.ip_addr_1=usRegHoldingBuf[SERVER_IP_REG_1];
+            configInfo.IPAdress_Server.ip_addr_2=usRegHoldingBuf[SERVER_IP_REG_2];
+            configInfo.IPAdress_Server.ip_addr_3=usRegHoldingBuf[SERVER_IP_REG_3];
 
-            Stngs.IPAdress_Server.port=usRegHoldingBuf[SERVER_PORT_REG_0];
+            configInfo.IPAdress_Server.port=usRegHoldingBuf[SERVER_PORT_REG_0];
 
-            Stngs.IPAdress_Client.ip_addr_0=usRegHoldingBuf[CLIENT_IP_REG_0];
-            Stngs.IPAdress_Client.ip_addr_1=usRegHoldingBuf[CLIENT_IP_REG_1];
-            Stngs.IPAdress_Client.ip_addr_2=usRegHoldingBuf[CLIENT_IP_REG_2];
-            Stngs.IPAdress_Client.ip_addr_3=usRegHoldingBuf[CLIENT_IP_REG_3];
+            configInfo.IPAdress_Client.ip_addr_0=usRegHoldingBuf[CLIENT_IP_REG_0];
+            configInfo.IPAdress_Client.ip_addr_1=usRegHoldingBuf[CLIENT_IP_REG_1];
+            configInfo.IPAdress_Client.ip_addr_2=usRegHoldingBuf[CLIENT_IP_REG_2];
+            configInfo.IPAdress_Client.ip_addr_3=usRegHoldingBuf[CLIENT_IP_REG_3];
 
-        	Settings_Save(Stngs);
+            ConfigInfoWrite();
         }
       }
     }

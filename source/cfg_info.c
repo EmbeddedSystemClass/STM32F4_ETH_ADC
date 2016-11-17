@@ -15,7 +15,11 @@
 
 //****************************************************************************
 // внешние переменные
-extern const sConfigInfo configInfoHard;
+const sConfigInfo configInfoHard = {
+	LABEL_CFG_SECTOR,	// Поле не убирать! Метка активного сектора!
+	{192,168,109,150,1000},
+	{192,168,109,140,1000}
+};
 
 //****************************************************************************
 // глобальные переменные доступные извне
@@ -104,14 +108,12 @@ int ConfigInfoRead (void)
   if(strcmp(MyInfo.Label, LABEL_CFG_SECTOR) == 0)
   {			//
     pMyInfoActive = &MyInfo;			// активный буфер - 1
-//	printf("MyInfo\r\n");
   }
   else
   {
     if(strcmp(MyInfo1.Label, LABEL_CFG_SECTOR) == 0)
     {	//
       pMyInfoActive = &MyInfo1;		// активный буфер - 2
-//	  printf("MyInfo1\r\n");
     }
     else
     {	// странно, но ни в одном буфере нет нужной информации - восстановим ее! (либо первый запуск прибора)
@@ -126,7 +128,6 @@ int ConfigInfoRead (void)
         return -1;
       }
       pMyInfoActive = &MyInfo;			// активный буфер - 1
-//	  printf("configInfoHard\r\n");
     }
   }
   memcpy(&configInfo, pMyInfoActive, sizeof(MyInfo));	
@@ -154,7 +155,7 @@ int ConfigInfoWrite(void)
 		return -1;
 	}
   // сотрем второй буфер FLASH
-	if(FLASH_ErasePage((uint32_t*)&pMyInfoActive) < 0)
+	if(FLASH_ErasePage((uint32_t*)pMyInfoActive) < 0)
 	{
 		return -1;
 	}

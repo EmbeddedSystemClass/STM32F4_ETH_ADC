@@ -31,14 +31,23 @@ LR_IROM3 0x08004000 0x00004000  {    ; load region size_region
 
 #define LABEL_CFG_SECTOR	"CFG_SECTOR"
 
+typedef struct
+{
+	uint8_t ip_addr_0;
+	uint8_t ip_addr_1;
+	uint8_t ip_addr_2;
+	uint8_t ip_addr_3;
+
+	uint16_t port;
+
+}sIPAddress;
+
 // конфигурационная информация (EEPROM)
 typedef struct 
 {
-	char Label[10];           //
-	char priborName[10];
-	int deviceVersion;
-	int progVersion;
-	int IDNumber;
+	char Label[16];           //
+	sIPAddress IPAdress_Client;
+	sIPAddress IPAdress_Server;
 } sConfigInfo;
 
 extern sConfigInfo configInfo;			// структура для хранения конфигурации прибора в ОЗУ

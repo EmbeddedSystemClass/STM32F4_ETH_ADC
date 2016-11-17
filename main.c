@@ -20,21 +20,15 @@
 #include "udp_send.h"
 #include "tcp_send.h"
 #include "adc_dcmi.h"
-#include "settings.h"
+//#include "settings.h"
 #include "cfg_info.h"
 
 struct netif xnetif;
-extern stSettings Stngs;
+//extern stSettings Stngs;
+extern sConfigInfo configInfo;
 
-const sConfigInfo configInfoHard = {
-	LABEL_CFG_SECTOR,	// ѕоле не убирать! ћетка активного сектора!
-	"LALALALA",
-	101,
-	4,
-	1,
-};
 
-void LwIP_Init(stIPAddress IPAddress)
+void LwIP_Init(sIPAddress IPAddress)
 {
   ip_addr_t ipaddr;
   ip_addr_t netmask;
@@ -47,8 +41,8 @@ void LwIP_Init(stIPAddress IPAddress)
   netmask.addr = 0;
   gw.addr = 0;
 #else
-  IP4_ADDR(&ipaddr, IP_ADDR0, IP_ADDR1, IP_ADDR2, IP_ADDR3);
-  //IP4_ADDR(&ipaddr, IPAddress.ip_addr_0, IPAddress.ip_addr_1, IPAddress.ip_addr_2, IPAddress.ip_addr_3);
+  //IP4_ADDR(&ipaddr, IP_ADDR0, IP_ADDR1, IP_ADDR2, IP_ADDR3);
+  IP4_ADDR(&ipaddr, IPAddress.ip_addr_0, IPAddress.ip_addr_1, IPAddress.ip_addr_2, IPAddress.ip_addr_3);
   IP4_ADDR(&netmask, NETMASK_ADDR0, NETMASK_ADDR1 , NETMASK_ADDR2, NETMASK_ADDR3);
   IP4_ADDR(&gw, GW_ADDR0, GW_ADDR1, GW_ADDR2, GW_ADDR3);
 #endif
@@ -68,14 +62,13 @@ int main()
     /* configure Ethernet (GPIOs, clocks, MAC, DMA) */ 
 
 		ConfigInfoRead();	// начальна€ инициализаци€ конфигурационной информации (об€зательно)
-		configInfo.progVersion = 0xAA;	// ћен€ем содержимое...
-		ConfigInfoWrite();	// когда все что нужно помен€ли - записываем
+		//ConfigInfoWrite();	// когда все что нужно помен€ли - записываем
 
 
     ETH_BSP_Config();
 
     /* Initilaize the LwIP stack */
-    LwIP_Init(Stngs.IPAdress_Client);
+    LwIP_Init(configInfo.IPAdress_Client);
     MB_TCP_Init();
 
     ADC_Ext_Init();
