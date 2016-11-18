@@ -12,6 +12,7 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "semphr.h"
+#include "cfg_info.h"
 
 
 #define UDP_ADC_PACKET_SIZE	1024
@@ -48,10 +49,12 @@ typedef struct
 
 stPacket UDPPacket;
 
+extern sConfigInfo configInfo;
+
 void udp_client_init(void)
 {
   client_pcb = udp_new();
-  IP4_ADDR( &DestIPaddr, SERVER_IP_ADDR0, SERVER_IP_ADDR1, SERVER_IP_ADDR2, SERVER_IP_ADDR3 );
+  IP4_ADDR( &DestIPaddr, configInfo.IPAdress_Server.ip_addr_0, configInfo.IPAdress_Server.ip_addr_1, configInfo.IPAdress_Server.ip_addr_2, configInfo.IPAdress_Server.ip_addr_3 );
   pb = pbuf_alloc(PBUF_TRANSPORT,sizeof(UDPPacket), PBUF_REF);
   pb->len = pb->tot_len = sizeof(UDPPacket);
   pb->payload = (uint8_t*)&UDPPacket;
@@ -77,7 +80,7 @@ void udp_client_send_buf(void)
 	while(adc_buf_offset!=(ADC_BUF_LEN>>1))
 	{
 		memcpy(&UDPPacket.data,((uint8_t*)ADC_buf_pnt+adc_buf_offset),UDP_ADC_PACKET_SIZE);
-		err=udp_sendto(client_pcb, pb,&DestIPaddr,SERVER_PORT);
+		err=udp_sendto(client_pcb, pb,&DestIPaddr,configInfo.IPAdress_Server.port);
 		adc_buf_offset+=UDP_ADC_PACKET_SIZE;
 		UDPPacket.id++;
 		delay(UDP_PACKET_SEND_DELAY);

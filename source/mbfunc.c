@@ -6,9 +6,9 @@
 #include "cfg_info.h"
 
 /* ----------------------- Defines ------------------------------------------*/
-#define REG_INPUT_START         1000
+#define REG_INPUT_START         1001
 #define REG_INPUT_NREGS         10
-#define REG_HOLDING_START       2000
+#define REG_HOLDING_START       2001
 #define REG_HOLDING_NREGS       10
 
 extern uint32_t LocalTime;

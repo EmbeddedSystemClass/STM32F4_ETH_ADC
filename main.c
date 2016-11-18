@@ -61,7 +61,7 @@ int main()
 
     /* configure Ethernet (GPIOs, clocks, MAC, DMA) */ 
 
-		ConfigInfoRead();	// начальна€ инициализаци€ конфигурационной информации (об€зательно)
+	ConfigInfoRead();	// начальна€ инициализаци€ конфигурационной информации (об€зательно)
 		//ConfigInfoWrite();	// когда все что нужно помен€ли - записываем
 
 
@@ -72,10 +72,7 @@ int main()
     MB_TCP_Init();
 
     ADC_Ext_Init();
-   udp_client_init();
-    //tcp_client_init();
-
-    //xTaskCreate(http_server_netconn_thread, "HTTP", 512, NULL, 1, ( TaskHandle_t * ) NULL);
+    udp_client_init();
 
     vTaskStartScheduler();
     return 0;
