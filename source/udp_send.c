@@ -55,12 +55,15 @@ void udp_client_init(void)
 {
   client_pcb = udp_new();
   IP4_ADDR( &DestIPaddr, configInfo.IPAdress_Server.ip_addr_0, configInfo.IPAdress_Server.ip_addr_1, configInfo.IPAdress_Server.ip_addr_2, configInfo.IPAdress_Server.ip_addr_3 );
+
+  //IP4_ADDR( &DestIPaddr, SERVER_IP_ADDR0, SERVER_IP_ADDR1, SERVER_IP_ADDR2, SERVER_IP_ADDR3 );
+
   pb = pbuf_alloc(PBUF_TRANSPORT,sizeof(UDPPacket), PBUF_REF);
   pb->len = pb->tot_len = sizeof(UDPPacket);
   pb->payload = (uint8_t*)&UDPPacket;
 
 
-  xTaskCreate( UDP_Send_Task, "UDP Task", 512, NULL, 2, NULL );
+  xTaskCreate( UDP_Send_Task, "UDP Task", 768, NULL, 2, NULL );
 }
 
 /*inline*/ void delay(uint32_t time)
@@ -81,6 +84,7 @@ void udp_client_send_buf(void)
 	{
 		memcpy(&UDPPacket.data,((uint8_t*)ADC_buf_pnt+adc_buf_offset),UDP_ADC_PACKET_SIZE);
 		err=udp_sendto(client_pcb, pb,&DestIPaddr,configInfo.IPAdress_Server.port);
+		//err=udp_sendto(client_pcb, pb,&DestIPaddr,SERVER_PORT);
 		adc_buf_offset+=UDP_ADC_PACKET_SIZE;
 		UDPPacket.id++;
 		delay(UDP_PACKET_SEND_DELAY);

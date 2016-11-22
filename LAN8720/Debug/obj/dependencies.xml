@@ -4,7 +4,7 @@
       <source file="..\..\..\cmsis_lib\include\stm32f4xx_exti.h" lastModified="1537a52bce0">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
-      <source file="..\..\..\lwipopts.h" lastModified="158772b3d49">
+      <source file="..\..\..\lwipopts.h" lastModified="15886df07f0">
       </source>
       <source file="..\..\..\FreeRTOS\croutine.c" lastModified="14b824baae0">
          <include file="..\..\..\FreeRTOS\include\FreeRTOS.h"/>
@@ -116,7 +116,7 @@
       </source>
       <source file="..\..\..\source\mbinit.h" lastModified="157e6e397c6">
       </source>
-      <source file="..\..\..\source\mbfunc.c" lastModified="1587708bae0">
+      <source file="..\..\..\source\mbfunc.c" lastModified="1588b0cc0d0">
          <include file="..\..\..\source\mbfunc.h"/>
          <include file="..\..\..\Modbus\include\mb.h"/>
          <include file="..\..\..\Modbus\tcp\mbtcp.h"/>
@@ -229,17 +229,6 @@
       <source file="..\..\..\source\eeprom.c" lastModified="132ed756b80">
          <include file="..\..\..\source\eeprom.h"/>
       </source>
-      <source file="..\..\..\source\tcp_send.c" lastModified="15843b0f6cc">
-         <include file="..\..\..\lwip\src\include\lwip\debug.h"/>
-         <include file="..\..\..\lwip\src\include\lwip\stats.h"/>
-         <include file="..\..\..\lwip\src\include\lwip\tcp.h"/>
-         <include file="..\..\..\main.h"/>
-         <include file="..\..\..\lwip\src\include\lwip\memp.h"/>
-         <include file="..\..\..\main.h"/>
-         <include file="..\..\..\FreeRTOS\include\FreeRTOS.h"/>
-         <include file="..\..\..\FreeRTOS\include\task.h"/>
-         <include file="..\..\..\FreeRTOS\include\semphr.h"/>
-      </source>
       <source file="..\..\..\http_server.c" lastModified="14b824bb2b0">
          <include file="..\..\..\lwip\src\include\lwip\opt.h"/>
          <include file="..\..\..\lwip\src\include\lwip\arch.h"/>
@@ -312,7 +301,7 @@
       <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="1537a52bce0">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
       </source>
-      <source file="..\..\..\source\cfg_info.h" lastModified="158717dd803">
+      <source file="..\..\..\source\cfg_info.h" lastModified="1588b08617d">
       </source>
       <source file="..\..\..\FreeRTOS\include\timers.h" lastModified="14b824baae0">
          <include file="..\..\..\FreeRTOS\include\task.h"/>
@@ -336,10 +325,12 @@
          <include file="..\..\..\lwip\src\include\ipv4\lwip\autoip.h"/>
          <include file="..\..\..\lwip\src\include\lwip\dhcp.h"/>
       </source>
-      <source file="..\..\..\source\cfg_info.c" lastModified="1587192e972">
+      <source file="..\..\..\source\cfg_info.c" lastModified="1588b0882d1">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_flash.h"/>
          <include file="..\..\..\source\cfg_info.h"/>
+         <include file="..\..\..\FreeRTOS\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\include\task.h"/>
       </source>
       <source file="..\..\..\lwip\src\core\tcp_in.c" lastModified="14b824baae0">
          <include file="..\..\..\lwip\src\include\lwip\opt.h"/>
@@ -474,8 +465,10 @@
       </source>
       <source file="..\..\..\FreeRTOS\include\StackMacros.h" lastModified="14b824baae0">
       </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_flash.c" lastModified="158621ce687">
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_flash.c" lastModified="1588b3ce3a1">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_flash.h"/>
+         <include file="..\..\..\FreeRTOS\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\include\task.h"/>
       </source>
       <source file="..\..\..\lwip\src\netif\ppp\randm.h" lastModified="14b824baae0">
       </source>
@@ -552,7 +545,7 @@
          <include file="..\..\..\lwip\src\include\lwip\netif.h"/>
          <include file="..\..\..\lwip\src\include\lwip\pbuf.h"/>
       </source>
-      <source file="..\..\..\main.c" lastModified="1587730a5ee">
+      <source file="..\..\..\main.c" lastModified="1588b3e77ed">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
          <include file="..\..\..\FreeRTOS\include\FreeRTOS.h"/>
          <include file="..\..\..\FreeRTOS\include\task.h"/>
@@ -784,7 +777,7 @@
       </source>
       <source file="..\..\..\lwip\port\include\arch\perf.h" lastModified="14b824baae0">
       </source>
-      <source file="..\..\..\source\udp_send.c" lastModified="15876b29a89">
+      <source file="..\..\..\source\udp_send.c" lastModified="1588665494f">
          <include file="..\..\..\lwip\src\include\lwip\debug.h"/>
          <include file="..\..\..\lwip\src\include\lwip\stats.h"/>
          <include file="..\..\..\lwip\src\include\lwip\udp.h"/>

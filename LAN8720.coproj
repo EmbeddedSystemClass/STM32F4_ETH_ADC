@@ -307,7 +307,6 @@
     <File name="lwip/src/netif/ppp/chap.c" path="lwip/src/netif/ppp/chap.c" type="1"/>
     <File name="Modbus/include/mbfunc.h" path="Modbus/include/mbfunc.h" type="1"/>
     <File name="lwip/src/api" path="" type="2"/>
-    <File name="source/tcp_send.c" path="source/tcp_send.c" type="1"/>
     <File name="lwip/src/netif/ppp/ppp_impl.h" path="lwip/src/netif/ppp/ppp_impl.h" type="1"/>
     <File name="Modbus/rtu/mbcrc.c" path="Modbus/rtu/mbcrc.c" type="1"/>
     <File name="Modbus/tcp" path="" type="2"/>
@@ -328,7 +327,6 @@
     <File name="lwip/src/netif/ppp/chpms.h" path="lwip/src/netif/ppp/chpms.h" type="1"/>
     <File name="Modbus/rtu/mbcrc.h" path="Modbus/rtu/mbcrc.h" type="1"/>
     <File name="lwip/src/core/ipv4/ip.c" path="lwip/src/core/ipv4/ip.c" type="1"/>
-    <File name="source/tcp_send.h" path="source/tcp_send.h" type="1"/>
     <File name="lwip/src/include/lwip" path="" type="2"/>
     <File name="cmsis_lib/source/misc.c" path="cmsis_lib/source/misc.c" type="1"/>
     <File name="lwip/src/include/posix" path="" type="2"/>

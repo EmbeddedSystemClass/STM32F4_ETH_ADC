@@ -10,6 +10,9 @@
 //#include "config.h"
 #include "cfg_info.h"
 
+#include "FreeRTOS.h"
+#include "task.h"
+
 //****************************************************************************
 // именованные константы
 
@@ -44,6 +47,9 @@ static sConfigInfo MyInfo1 __attribute__((section(".flash_cfg2")));
 #define PAGE1_ID               FLASH_Sector_2
 
 //****************************************************************************
+
+void Flash_Write_Task( void *pvParameters );
+
 
 static int FLASH_ErasePage (uint32_t  *pageAddr)
 {
@@ -161,5 +167,16 @@ int ConfigInfoWrite(void)
 	}
   pMyInfoActive = pMyInfoNoActive;
   return 0;
+}
+
+void StartConfigInfoWrite(void)
+{
+	xTaskCreate( Flash_Write_Task, "Flash Write Task", 512, NULL, tskIDLE_PRIORITY, NULL );
+}
+
+void Flash_Write_Task( void *pvParameters )
+{
+	ConfigInfoWrite();
+	vTaskDelete(NULL);
 }
 

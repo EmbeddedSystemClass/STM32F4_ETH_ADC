@@ -68,6 +68,8 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_flash.h"
+#include "FreeRTOS.h"
+#include "task.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
   * @{
@@ -1031,7 +1033,8 @@ FLASH_Status FLASH_WaitForLastOperation(void)
      flag will be set */
   while(status == FLASH_BUSY)
   {
-    status = FLASH_GetStatus();
+	  taskYIELD();
+	  status = FLASH_GetStatus();
   }
   /* Return the operation status */
   return status;
