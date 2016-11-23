@@ -98,8 +98,8 @@ assembly files that include this header file. */
 #define configCPU_CLOCK_HZ				( SystemCoreClock )
 #define configTICK_RATE_HZ				( ( TickType_t ) 1000 )
 #define configMAX_PRIORITIES			( 5 )
-#define configMINIMAL_STACK_SIZE		( ( unsigned short ) 90 )
-#define configTOTAL_HEAP_SIZE			( ( size_t ) ( 20 * 1024 ) )
+#define configMINIMAL_STACK_SIZE		( ( unsigned short ) 128 )
+#define configTOTAL_HEAP_SIZE			( ( size_t ) ( 50 * 1024 ) )
 #define configMAX_TASK_NAME_LEN			( 10 )
 #define configUSE_TRACE_FACILITY		1
 #define configUSE_16_BIT_TICKS			0
@@ -169,7 +169,7 @@ See http://www.FreeRTOS.org/RTOS-Cortex-M3-M4.html. */
 #define configIP_ADDR0		192
 #define configIP_ADDR1		168
 #define configIP_ADDR2		109
-#define configIP_ADDR3		200
+#define configIP_ADDR3		150
 
 /* Netmask configuration. */
 #define configNET_MASK0		255

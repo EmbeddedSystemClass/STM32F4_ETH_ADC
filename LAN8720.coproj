@@ -179,7 +179,6 @@
     <File name="source/adc_dcmi.h" path="source/adc_dcmi.h" type="1"/>
     <File name="lwip/src/include/lwip/def.h" path="lwip/src/include/lwip/def.h" type="1"/>
     <File name="lwip/src/netif/slipif.c" path="lwip/src/netif/slipif.c" type="1"/>
-    <File name="http_server.h" path="http_server.h" type="1"/>
     <File name="lwip/src/include/ipv4/lwip/inet.h" path="lwip/src/include/ipv4/lwip/inet.h" type="1"/>
     <File name="lwip/src/include/netif/ppp_oe.h" path="lwip/src/include/netif/ppp_oe.h" type="1"/>
     <File name="lwip/src/include/ipv4/lwip/ip_frag.h" path="lwip/src/include/ipv4/lwip/ip_frag.h" type="1"/>
@@ -236,11 +235,11 @@
     <File name="source/mbinit.c" path="source/mbinit.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_gpio.h" path="cmsis_lib/include/stm32f4xx_gpio.h" type="1"/>
     <File name="STM32F4x7_ETH_Driver" path="" type="2"/>
+    <File name="source/http_server.c" path="source/http_server.c" type="1"/>
     <File name="lwip/src/include/lwip/sio.h" path="lwip/src/include/lwip/sio.h" type="1"/>
     <File name="Modbus/ascii/mbascii.c" path="Modbus/ascii/mbascii.c" type="1"/>
     <File name="FreeRTOS/croutine.c" path="FreeRTOS/croutine.c" type="1"/>
     <File name="lwip/src/include" path="" type="2"/>
-    <File name="http_server.c" path="http_server.c" type="1"/>
     <File name="lwip/src/api/netbuf.c" path="lwip/src/api/netbuf.c" type="1"/>
     <File name="lwip/src/core/ipv4/autoip.c" path="lwip/src/core/ipv4/autoip.c" type="1"/>
     <File name="lwip/src/include/lwip/tcp.h" path="lwip/src/include/lwip/tcp.h" type="1"/>
@@ -273,6 +272,7 @@
     <File name="FreeRTOS/list.c" path="FreeRTOS/list.c" type="1"/>
     <File name="lwip/src/netif/ppp/fsm.c" path="lwip/src/netif/ppp/fsm.c" type="1"/>
     <File name="lwip/src/include/lwip/tcp_impl.h" path="lwip/src/include/lwip/tcp_impl.h" type="1"/>
+    <File name="source/http_server.h" path="source/http_server.h" type="1"/>
     <File name="source/mbfunc.h" path="source/mbfunc.h" type="1"/>
     <File name="lwip/src/core/udp.c" path="lwip/src/core/udp.c" type="1"/>
     <File name="lwip/src/include/lwip/timers.h" path="lwip/src/include/lwip/timers.h" type="1"/>

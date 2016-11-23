@@ -8,6 +8,15 @@
 #define LEN 1024
 char data[LEN];
 
+void http_server_serve(struct netconn *conn);
+void http_server_netconn_thread();
+
+
+void http_server_init(void)
+{
+	 xTaskCreate(http_server_netconn_thread, "HTTP", 512, NULL, tskIDLE_PRIORITY,  NULL);
+}
+
 void http_server_serve(struct netconn *conn) 
 {
     struct netbuf *inbuf;
@@ -60,10 +69,10 @@ void http_server_netconn_thread()
       {
         /* accept any icoming connection */
         err = netconn_accept(conn, &newconn);
-      
+
         /* serve connection */
         http_server_serve(newconn);
-      
+
         /* delete connection */
         netconn_delete(newconn);
       }

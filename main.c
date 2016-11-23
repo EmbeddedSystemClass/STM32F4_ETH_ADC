@@ -18,7 +18,7 @@
 #include <stdio.h>
 #include "mbinit.h"
 #include "udp_send.h"
-#include "tcp_send.h"
+//#include "tcp_send.h"
 #include "adc_dcmi.h"
 #include "cfg_info.h"
 
@@ -58,12 +58,14 @@ void Init_Task( void *pvParameters )
 	ConfigInfoRead();
     ETH_BSP_Config();
 
-    /* Initilaize the LwIP stack */
     LwIP_Init(configInfo.IPAdress_Client);
     MB_TCP_Init();
 
     ADC_Ext_Init();
     udp_client_init();
+
+    http_server_init();
+
 	vTaskDelete(NULL);
 }
 

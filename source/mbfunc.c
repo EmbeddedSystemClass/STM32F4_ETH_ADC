@@ -30,7 +30,9 @@ eMBRegInputCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs )
     int             iRegIndex;
     uint8_t i=0;
 
+
     xQueueReceive( xADC_MB_Queue, &( usRegInputBuf ), ( TickType_t ) 0 ) ;
+
 
 
     if( ( usAddress >= REG_INPUT_START )
