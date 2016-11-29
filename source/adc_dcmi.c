@@ -129,8 +129,8 @@ void ADC_DCMI_Tim_Init(void)
 	  GPIO_PinAFConfig(GPIOA, GPIO_PinSource8, GPIO_AF_MCO );
 
 
-	  RCC_MCO1Config(RCC_MCO1Source_PLLCLK,RCC_MCO1Div_4);
-	  //RCC_MCO1Config(RCC_MCO1Source_HSE,RCC_MCO1Div_1);
+	  //RCC_MCO1Config(RCC_MCO1Source_PLLCLK,RCC_MCO1Div_4);
+	  RCC_MCO1Config(RCC_MCO1Source_HSE,RCC_MCO1Div_1);
 
 
 	 //-------------ETR_CONFIG-------------------
@@ -156,12 +156,12 @@ void ADC_DCMI_Tim_Init(void)
 	 /* Time base configuration */
 	 TIM_TimeBaseStructInit(&TIM_TimeBaseStructure);
 	 TIM_TimeBaseStructure.TIM_Prescaler =  1-1;
-	 TIM_TimeBaseStructure.TIM_Period = 420;//1680;
+	 TIM_TimeBaseStructure.TIM_Period = 80;//420;//1680;
 	 TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
 	 TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
 	 TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure);
 
-	 TIM_ETRClockMode2Config(TIM3, TIM_ExtTRGPSC_OFF, TIM_ExtTRGPolarity_Inverted, 0);
+	 TIM_ETRClockMode2Config(TIM3, TIM_ExtTRGPSC_OFF, TIM_ExtTRGPolarity_NonInverted, 0);
 
 	 /* PWM1 Mode configuration: Channel1 */
 	 TIM_OCStructInit(&TIM_OCInitStructure);

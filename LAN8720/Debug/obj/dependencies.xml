@@ -534,7 +534,7 @@
          <include file="..\..\..\lwip\src\include\lwip\netif.h"/>
          <include file="..\..\..\lwip\src\include\lwip\pbuf.h"/>
       </source>
-      <source file="..\..\..\main.c" lastModified="158912340b1">
+      <source file="..\..\..\main.c" lastModified="158afd0a7a7">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
          <include file="..\..\..\FreeRTOS\include\FreeRTOS.h"/>
          <include file="..\..\..\FreeRTOS\include\task.h"/>
@@ -704,7 +704,7 @@
          <include file="..\..\..\lwip\src\include\ipv4\lwip\ip_addr.h"/>
          <include file="..\..\..\lwip\src\include\lwip\netif.h"/>
       </source>
-      <source file="..\..\..\source\http_server.c" lastModified="158911c5796">
+      <source file="..\..\..\source\http_server.c" lastModified="158afd04bbc">
          <include file="..\..\..\lwip\src\include\lwip\opt.h"/>
          <include file="..\..\..\lwip\src\include\lwip\arch.h"/>
          <include file="..\..\..\lwip\src\include\lwip\api.h"/>
@@ -872,20 +872,6 @@
          <include file="..\..\..\lwip\src\include\lwip\opt.h"/>
          <include file="..\..\..\lwip\src\include\lwip\pbuf.h"/>
          <include file="..\..\..\lwip\src\include\ipv4\lwip\ip_addr.h"/>
-      </source>
-      <source file="..\..\..\source\adc_dcmi.c" lastModified="15852b27410">
-         <include file="..\..\..\main.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_spi.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_dma.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_dcmi.h"/>
-         <include file="..\..\..\cmsis_lib\include\misc.h"/>
-         <include file="..\..\..\FreeRTOS\include\FreeRTOS.h"/>
-         <include file="..\..\..\FreeRTOS\include\task.h"/>
-         <include file="..\..\..\FreeRTOS\include\semphr.h"/>
-         <include file="..\..\..\FreeRTOS\include\queue.h"/>
       </source>
       <source file="..\..\..\lwip\port\include\arch\cc.h" lastModified="14b824baae0">
          <include file="..\..\..\lwip\port\include\arch\cpu.h"/>
@@ -1103,6 +1089,13 @@
          <include file="..\..\..\FreeRTOS\include\FreeRTOS.h"/>
          <include file="..\..\..\FreeRTOS\include\task.h"/>
       </source>
+      <source file="..\..\..\FreeRTOS\include\deprecated_definitions.h" lastModified="14b824c7600">
+         <include file="..\..\..\FreeRTOS\portable\GCC\ARM_CM4F\portmacro.h"/>
+         <include file="..\..\..\FreeRTOS\portable\GCC\ARM_CM4F\portmacro.h"/>
+         <include file="..\..\..\FreeRTOS\portable\GCC\ARM_CM4F\portmacro.h"/>
+         <include file="..\..\..\FreeRTOS\portable\GCC\ARM_CM4F\portmacro.h"/>
+         <include file="..\..\..\FreeRTOS\portable\GCC\ARM_CM4F\portmacro.h"/>
+      </source>
       <source file="..\..\..\lwip\src\include\lwip\snmp_structs.h" lastModified="14b824baec8">
          <include file="..\..\..\lwip\src\include\lwip\opt.h"/>
          <include file="..\..\..\lwip\src\include\lwip\snmp.h"/>
@@ -1280,12 +1273,12 @@
       <source file="..\..\..\cmsis_lib\include\misc.h" lastModified="1537a52bce0">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_syscfg.h" lastModified="1537a52bce0">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
       <source file="..\..\..\cmsis_lib\source\stm32f4xx_tim.c" lastModified="15798fd8ef2">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_syscfg.h" lastModified="1537a52bce0">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
       <source file="..\..\..\lwip\src\include\lwip\sockets.h" lastModified="14b824baec8">
          <include file="..\..\..\lwip\src\include\lwip\opt.h"/>
@@ -1367,12 +1360,12 @@
          <include file="..\..\..\lwip\src\include\lwip\memp_std.h"/>
          <include file="..\..\..\lwip\src\include\lwip\memp_std.h"/>
       </source>
-      <source file="..\..\..\lwip\src\include\lwip\init.h" lastModified="14b824baae0">
-         <include file="..\..\..\lwip\src\include\lwip\opt.h"/>
-      </source>
       <source file="..\..\..\lwip\src\include\lwip\opt.h" lastModified="14b824baae0">
          <include file="..\..\..\lwipopts.h"/>
          <include file="..\..\..\lwip\src\include\lwip\debug.h"/>
+      </source>
+      <source file="..\..\..\lwip\src\include\lwip\init.h" lastModified="14b824baae0">
+         <include file="..\..\..\lwip\src\include\lwip\opt.h"/>
       </source>
    </includePath>
 </dependencies>

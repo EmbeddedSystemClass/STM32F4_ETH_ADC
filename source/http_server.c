@@ -8,6 +8,25 @@
 #define LEN 1024
 char data[LEN];
 
+const char webif_200_header[] =
+    "HTTP/1.0 200 OK\r\n"
+    "Content-Type: text/html; charset=windows-1251\r\n"
+    "Server: ATmega16\r\n"
+    "\r\n";
+
+const char webif_form[] =
+		"<pre>"
+		"<form action='/' method='GET'>\r\n"
+		"Enter device IP address :\r\n"
+		"<input type='text' name='ip0' size='4' value='192'>"
+		"<input type='text' name='ip1' size='4' value='168'>"
+		"<input type='text' name='ip2' size='4' value='109'>"
+		"<input type='text' name='ip3' size='4' value='150'>"
+		"<input type='submit' value='OK'>\r\n"
+		"</form>"
+		"</pre>";
+
+
 void http_server_serve(struct netconn *conn);
 void http_server_netconn_thread();
 
@@ -33,9 +52,15 @@ void http_server_serve(struct netconn *conn)
         netbuf_data(inbuf, (void**)&buf, &buflen);
         if ((buflen >=5) && (strncmp(buf, "GET /", 5) == 0))
         {
-            sprintf(data, "Hello %d times!", call_times++);
-            len = strlen(data);
-            netconn_write(conn, (const unsigned char*)(data), (size_t)len, NETCONN_NOCOPY);
+//            sprintf(data, "Hello %d times!", call_times++);
+//            len = strlen(data);
+//            netconn_write(conn, (const unsigned char*)(data), (size_t)len, NETCONN_NOCOPY);
+
+            len = strlen(webif_200_header);
+            netconn_write(conn, (const unsigned char*)(webif_200_header), (size_t)len, NETCONN_NOCOPY);
+
+            len = strlen(webif_form);
+            netconn_write(conn, (const unsigned char*)(webif_form), (size_t)len, NETCONN_NOCOPY);
         }
     }
     
@@ -86,4 +111,28 @@ void http_server_netconn_thread()
   {
     printf("can not create netconn");
   }
+}
+
+void http_param_handler(uint8_t *param_string)
+{
+	const uint8_t *str_param[]={"ip0","ip1","ip2","ip3"};
+	uint8_t *str_pnt;
+	uint8_t ip[4];
+	uint8_t i=0;
+
+	for(i=0;i<4;i++)
+	{
+		if(strcmp(param_string,str_param[i]))
+		{
+			if(str_pnt = strchr(param_string, '='))
+			{
+				str_pnt++;
+				//atoi();
+			}
+
+		}
+	}
+
+
+
 }

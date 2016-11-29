@@ -64,7 +64,7 @@ void Init_Task( void *pvParameters )
     ADC_Ext_Init();
     udp_client_init();
 
-    http_server_init();
+   // http_server_init();
 
 	vTaskDelete(NULL);
 }
