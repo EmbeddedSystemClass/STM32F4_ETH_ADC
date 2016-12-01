@@ -1273,12 +1273,12 @@
       <source file="..\..\..\cmsis_lib\include\misc.h" lastModified="1537a52bce0">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_syscfg.h" lastModified="1537a52bce0">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
       <source file="..\..\..\cmsis_lib\source\stm32f4xx_tim.c" lastModified="15798fd8ef2">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_syscfg.h" lastModified="1537a52bce0">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
       <source file="..\..\..\lwip\src\include\lwip\sockets.h" lastModified="14b824baec8">
          <include file="..\..\..\lwip\src\include\lwip\opt.h"/>
@@ -1360,12 +1360,12 @@
          <include file="..\..\..\lwip\src\include\lwip\memp_std.h"/>
          <include file="..\..\..\lwip\src\include\lwip\memp_std.h"/>
       </source>
+      <source file="..\..\..\lwip\src\include\lwip\init.h" lastModified="14b824baae0">
+         <include file="..\..\..\lwip\src\include\lwip\opt.h"/>
+      </source>
       <source file="..\..\..\lwip\src\include\lwip\opt.h" lastModified="14b824baae0">
          <include file="..\..\..\lwipopts.h"/>
          <include file="..\..\..\lwip\src\include\lwip\debug.h"/>
-      </source>
-      <source file="..\..\..\lwip\src\include\lwip\init.h" lastModified="14b824baae0">
-         <include file="..\..\..\lwip\src\include\lwip\opt.h"/>
       </source>
    </includePath>
 </dependencies>
