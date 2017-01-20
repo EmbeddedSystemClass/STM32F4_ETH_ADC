@@ -59,7 +59,7 @@
 
 
 #define netifMTU                                (1500)
-#define netifINTERFACE_TASK_STACK_SIZE		( 512 )
+#define netifINTERFACE_TASK_STACK_SIZE		( 1024 )
 #define netifINTERFACE_TASK_PRIORITY		( configMAX_PRIORITIES - 1 )
 #define netifGUARD_BLOCK_TIME			( 250 )
 /* The time to block waiting for input. */

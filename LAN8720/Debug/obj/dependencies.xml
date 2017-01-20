@@ -431,7 +431,7 @@
          <include file="..\..\..\lwip\src\include\ipv4\lwip\ip.h"/>
          <include file="..\..\..\lwip\src\include\ipv4\lwip\ip_addr.h"/>
       </source>
-      <source file="..\..\..\lwip\port\ethernetif.c" lastModified="1587729ab10">
+      <source file="..\..\..\lwip\port\ethernetif.c" lastModified="159bc055041">
          <include file="..\..\..\lwip\src\include\lwip\opt.h"/>
          <include file="..\..\..\lwip\src\include\lwip\def.h"/>
          <include file="..\..\..\lwip\src\include\lwip\mem.h"/>
@@ -776,7 +776,7 @@
       </source>
       <source file="..\..\..\lwip\port\include\arch\perf.h" lastModified="14b824baae0">
       </source>
-      <source file="..\..\..\source\udp_send.c" lastModified="1588665494f">
+      <source file="..\..\..\source\udp_send.c" lastModified="159bbfc7d09">
          <include file="..\..\..\lwip\src\include\lwip\debug.h"/>
          <include file="..\..\..\lwip\src\include\lwip\stats.h"/>
          <include file="..\..\..\lwip\src\include\lwip\udp.h"/>
@@ -872,6 +872,20 @@
          <include file="..\..\..\lwip\src\include\lwip\opt.h"/>
          <include file="..\..\..\lwip\src\include\lwip\pbuf.h"/>
          <include file="..\..\..\lwip\src\include\ipv4\lwip\ip_addr.h"/>
+      </source>
+      <source file="..\..\..\source\adc_dcmi.c" lastModified="158b9978b90">
+         <include file="..\..\..\main.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_spi.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_dma.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_dcmi.h"/>
+         <include file="..\..\..\cmsis_lib\include\misc.h"/>
+         <include file="..\..\..\FreeRTOS\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\include\task.h"/>
+         <include file="..\..\..\FreeRTOS\include\semphr.h"/>
+         <include file="..\..\..\FreeRTOS\include\queue.h"/>
       </source>
       <source file="..\..\..\lwip\port\include\arch\cc.h" lastModified="14b824baae0">
          <include file="..\..\..\lwip\port\include\arch\cpu.h"/>

@@ -63,7 +63,7 @@ void udp_client_init(void)
   pb->payload = (uint8_t*)&UDPPacket;
 
 
-  xTaskCreate( UDP_Send_Task, "UDP Task", 768, NULL, 2, NULL );
+  xTaskCreate( UDP_Send_Task, "UDP Task", 2048, NULL, 2, NULL );
 }
 
 /*inline*/ void delay(uint32_t time)
@@ -96,7 +96,8 @@ void UDP_Send_Task( void *pvParameters )
 {
 	while(1)
 	{
-		xSemaphoreTake( xAdcBuf_Send_Semaphore, portMAX_DELAY );
+		//xSemaphoreTake( xAdcBuf_Send_Semaphore, portMAX_DELAY );
+		vTaskDelay(10);
 		udp_client_send_buf();
 		ADC_GetLastVal();
 	}
